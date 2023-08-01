@@ -48,7 +48,7 @@ const AuthNav = () => {
                 <div className={`${preActive === 2 ? "bg-icob" : ""} rounded-md p-1 cursor-pointer`}>
                     <CiMobile1 className='text-white text-3xl' onClick={() => {
                         setPreActive(2)
-                        dispatch(setView("w-[468px]"))
+                        dispatch(setView("w-[400px]"))
                     }} />
                 </div>
                 <div className={`${preActive === 3 ? "bg-icob" : ""} rounded-md p-1 cursor-pointer`}>
