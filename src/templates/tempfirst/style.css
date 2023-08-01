@@ -1,0 +1,7 @@
+.mainImg {
+    background-image: url('./assets/Banner.png');
+
+    background-size: cover;
+    /* background: linear-gradient(131deg, #000 0%, #000 10.40%, #0C0F24 25.00%, #000 66.32%, #080136 100%); */
+    background-repeat: no-repeat;
+}
