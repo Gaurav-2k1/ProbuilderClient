@@ -46,7 +46,7 @@ function TemplateSlider() {
   // console.log(reviews)
 
   return (
-    <div className="">
+    <div className="my-6">
       <div className="h-full w-screen">
         <Swiper
           effect={'coverflow'}
@@ -77,7 +77,7 @@ function TemplateSlider() {
             templates.map((data, i) => {
               return (
                 <SwiperSlide key={i} className="">
-                  <img src={data.url} alt="" className="w-min h-min object-contain" />
+                  <img src={data.url} alt="" className="w-min h-min object-contain " />
                 </SwiperSlide>
               )
             })
