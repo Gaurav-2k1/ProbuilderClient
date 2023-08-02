@@ -13,6 +13,7 @@ import Tempfirst from '../Tempone/Tempfirst'
 import { useDispatch } from 'react-redux'
 import { getUserDetails } from '../../services/operations/profileAPI'
 import Home from './home/Home'
+import About from './about/About'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const Homepage = () => {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/about' element={<About/>} />
 
                 <Route
                     path="login"
