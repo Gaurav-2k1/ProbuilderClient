@@ -2,7 +2,7 @@ import React from 'react'
 
 import AuthNav from './drawer/AuthNav'
 import LNavbar from './landingPage/LNavbar'
-import { Link, useLocation, } from 'react-router-dom'
+import { useLocation, } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {

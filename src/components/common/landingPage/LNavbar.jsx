@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsChevronDown } from 'react-icons/bs'
+// import { BsChevronDown } from 'react-icons/bs'
 import { Link, matchPath, useLocation } from "react-router-dom"
 import { NavbarLinks } from '../../../data/navbar-links'
 const LNavbar = () => {
