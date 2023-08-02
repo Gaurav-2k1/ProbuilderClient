@@ -12,6 +12,7 @@ import Dashboard from '../../components/dashboard/Dashboard'
 import Tempfirst from '../Tempone/Tempfirst'
 import { useDispatch } from 'react-redux'
 import { getUserDetails } from '../../services/operations/profileAPI'
+import Home from './home/Home'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -28,7 +29,7 @@ const Homepage = () => {
         <div>
             <Navbar />
             <Routes>
-                {/* <Route path='/' element={<Homepage />} /> */}
+                <Route path='/' element={<Home />} />
 
                 <Route
                     path="login"
@@ -80,7 +81,7 @@ const Homepage = () => {
                     <Route path="dashboard/builder" element={<Dashboard />} />
 
                 </Route>
-                <Route path='/dashboard/tempone' element={<Tempfirst />} />
+                <Route path='/template/tempone' element={<Tempfirst />} />
 
             </Routes>
         </div>

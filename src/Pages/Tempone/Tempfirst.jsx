@@ -49,7 +49,7 @@ const Tempfirst = () => {
     useEffect(() => {
         let id = location.pathname.split("/").at(-1)
 
-        if (location.pathname === "/dashboard/tempone") {
+        if (location.pathname === "/template/tempone") {
             console.log("called")
             if (localStorage.getItem("token")) {
                 const token = JSON.parse(localStorage.getItem("token"))

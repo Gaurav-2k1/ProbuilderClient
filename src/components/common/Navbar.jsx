@@ -16,20 +16,13 @@ const Navbar = () => {
     return (
         <>
             {
-                location.pathname === "/dashboard/tempone" || location.pathname === `/web/${id}` ? <></> :
-                    <div className='flex  flex-row h-16 py-4 w-screen  items-center bg-[#222222] px-5 
-        z-50'>
-                        <div className='text-3xl font-MuseoModerno navhead font-bold cursor-pointer
-            w-1/4'>
-                            <Link to="/">Probuilder</Link>
-                        </div>
-
+                location.pathname === "/template/tempone" || location.pathname === `/web/${id}` ? <></> :
+                    <>
                         {
                             token ? <AuthNav /> :
                                 <LNavbar />
                         }
-
-                    </div>
+                    </>
 
             }
         </>

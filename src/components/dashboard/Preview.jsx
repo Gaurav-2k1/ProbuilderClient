@@ -8,7 +8,7 @@ const Preview = () => {
         justify-center flex w-full md:pr-40 relative'>
             {
                 view === "w-screen" ?
-                    <Link target="_blank" rel="noopener noreferrer" className='absolute top-2 font-roboto-flex cursor-pointer hover:underline' to="/dashboard/tempone">Click here to open desktop view in new tab</Link>
+                    <Link target="_blank" rel="noopener noreferrer" className='absolute top-2 font-roboto-flex cursor-pointer hover:underline' to="/template/tempone">Click here to open desktop view in new tab</Link>
                     : <></>
             }
 
@@ -17,7 +17,7 @@ const Preview = () => {
                 <iframe
 
                     className={`${view} no-scrollbar overflow-y-scroll h-full  rounded-lg `}
-                    src="/dashboard/tempone"
+                    src="/template/tempone"
                     title="Web Browser" />
                 {/* <Tempfirst /> */}
             </div>

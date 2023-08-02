@@ -24,7 +24,7 @@ body {
   border-radius: 50%;
   border: 9px solid #f1f2ff;
   animation: spinner-bulqg1 0.8s infinite linear alternate,
-  spinner-oaa3wk 1.6s infinite linear;
+    spinner-oaa3wk 1.6s infinite linear;
 }
 
 
@@ -34,75 +34,63 @@ body {
   }
 
   12.5% {
-    clip-path: polygon(
-      50% 50%,
-      0 0,
-      50% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%
-    );
+    clip-path: polygon(50% 50%,
+        0 0,
+        50% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%);
   }
 
   25% {
-    clip-path: polygon(
-      50% 50%,
-      0 0,
-      50% 0%,
-      100% 0%,
-      100% 100%,
-      100% 100%,
-      100% 100%
-    );
+    clip-path: polygon(50% 50%,
+        0 0,
+        50% 0%,
+        100% 0%,
+        100% 100%,
+        100% 100%,
+        100% 100%);
   }
 
   50% {
-    clip-path: polygon(
-      50% 50%,
-      0 0,
-      50% 0%,
-      100% 0%,
-      100% 100%,
-      50% 100%,
-      0% 100%
-    );
+    clip-path: polygon(50% 50%,
+        0 0,
+        50% 0%,
+        100% 0%,
+        100% 100%,
+        50% 100%,
+        0% 100%);
   }
 
   62.5% {
-    clip-path: polygon(
-      50% 50%,
-      100% 0,
-      100% 0%,
-      100% 0%,
-      100% 100%,
-      50% 100%,
-      0% 100%
-    );
+    clip-path: polygon(50% 50%,
+        100% 0,
+        100% 0%,
+        100% 0%,
+        100% 100%,
+        50% 100%,
+        0% 100%);
   }
 
   75% {
-    clip-path: polygon(
-      50% 50%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      50% 100%,
-      0% 100%
-    );
+    clip-path: polygon(50% 50%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        50% 100%,
+        0% 100%);
   }
 
   100% {
-    clip-path: polygon(
-      50% 50%,
-      50% 100%,
-      50% 100%,
-      50% 100%,
-      50% 100%,
-      50% 100%,
-      0% 100%
-    );
+    clip-path: polygon(50% 50%,
+        50% 100%,
+        50% 100%,
+        50% 100%,
+        50% 100%,
+        50% 100%,
+        0% 100%);
   }
 }
 
@@ -164,10 +152,30 @@ body {
 } */
 
 .navhead {
-  background: linear-gradient(256deg, #1A0D68 0%, #0400D3 31.77%, #BBC8FF 54.17%, #454DFD 100%);
+  background: linear-gradient(101deg, #244CEC 0%, #244CEC 31.77%, #000 54.17%, #4E000E 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.mainhero {
+  background: linear-gradient(156deg, #030082 0%, #4E0000 56.68%, #BB1A41 100%);
+  border-radius: 9px;
+
+}
+
+.herotext{
+  background: linear-gradient(42deg, #FFFFFC 0%, #9EA5FF 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.herosectext{
+  
+background: linear-gradient(114deg, #7E7584 0%, #AF2DFF 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 @layer utilities {
@@ -193,6 +201,7 @@ a {
 .container {
   padding: 0 2rem;
 }
+
 
 @layer components {
 

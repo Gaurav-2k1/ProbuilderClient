@@ -12,68 +12,36 @@ const LNavbar = () => {
         return matchPath({ path: route }, location.pathname)
     }
     return (
-        <div className='flex justify-between flex-row h-min w-3/4 items-center bg-[#222222] px-5 py-4
-    '>
-           
-            <nav className="hidden md:block">
-                <ul className="flex gap-x-6">{NavbarLinks.map((link, index) => (
-                    <li key={index}>
-                        {link.title === "Catalog" ? (
-                            <>
-                                <div
-                                    className={`group relative font-mono text-lg flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
-                                        ? "text-yellow-25"
-                                        : "text-richblack-25"
-                                        }`}
-                                >
-                                    <p>{link.title}</p>
-                                    <BsChevronDown />
-                                    {/* <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 bg-white transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
-                                        <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded"></div>
-                                        {loading ? (
-                                            <p className="text-center">Loading...</p>
-                                        ) : subLinks.length ? (
-                                            <>
-                                                {subLinks
-                                                    ?.filter(
-                                                        (subLink) => subLink?.courses?.length > 0
-                                                    )
-                                                    ?.map((subLink, i) => (
-                                                        <Link
-                                                            to={`/catalog/${subLink.name
-                                                                .split(" ")
-                                                                .join("-")
-                                                                .toLowerCase()}`}
-                                                            className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50 font-mono"
-                                                            key={i}
-                                                        >
-                                                            <p>{subLink.name}</p>
-                                                        </Link>
-                                                    ))}
-                                            </>
-                                        ) : (
-                                            <p className="text-center">No Courses Found</p>
-                                        )}
-                                    </div> */}
-                                </div>
-                            </>
-                        ) : (
+        <div className='flex  flex-row h-16 py-4 w-screen  items-center justify-between bg-[#fff] px-5 
+        z-50 border-b border-[#5E5E5E] border-opacity-80 border-solid'>
+            <div className='text-3xl font-MuseoModerno navhead font-bold cursor-pointer 
+        '>
+                <Link to="/">Probuilder</Link>
+            </div>
+            <div className='flex justify-around flex-row h-min  items-center bg-[#fff]'>
+                <nav className="hidden md:block">
+                    <ul className="flex gap-x-6">{NavbarLinks.map((link, index) => (
+                        <li key={index}>
+
                             <Link to={link?.path}>
                                 <p
-                                    className={`font-mono text-lg ${matchRoute(link?.path)
-                                        ? "text-yellow-25"
-                                        : "text-richblack-25"
+                                    className={`font-DMSans text-lg  ${matchRoute(link?.path)
+                                        ? "text-icob font-bold"
+                                        : "text-[#5E5E5E] font-normal"
                                         }`}
                                 >
                                     {link.title}
                                 </p>
                             </Link>
-                        )}
-                    </li>
-                ))}
-                </ul>
-            </nav>
 
+                        </li>
+                    ))}
+                    </ul>
+                </nav>
+
+
+
+            </div>
             <div className='flex flex-row gap-3 items-center '>
 
 
@@ -90,6 +58,7 @@ const LNavbar = () => {
             </div>
 
         </div>
+
     )
 }
 
