@@ -68,7 +68,7 @@ const LNavbar = () => {
                             <li key={i} className='hover:text-slate-500  
                             delay-100
                          text-black font-semibold font-roboto-flex cursor-pointer list-none text-2xl'>
-                                <Link href={data.link} onClick={() => {
+                                <Link href={data.path} onClick={() => {
                                     setshow(false)
                                 }}>{data.title}</Link>
                             </li>
@@ -79,11 +79,15 @@ const LNavbar = () => {
 
                         <div className='rounded-md flex flex-row
                 px-4 py-1 items-center bg-white gap-2 cursor-pointer
-                border border-gray-400 border-solid border-opacity-80 '>
-                            <Link to="/login" className='text-lg text-black font-DMSans'>Login</Link>
+                border border-gray-400 border-solid border-opacity-80 ' onClick={() => {
+                                    setshow(false)
+                                }}>
+                            <Link to="/login" className='text-lg text-black font-DMSans' >Login</Link>
                         </div>
                         <div className='rounded-md flex flex-row
-                px-4 py-1 items-center bg-icob gap-2 cursor-pointer'>
+                px-4 py-1 items-center bg-icob gap-2 cursor-pointer' onClick={() => {
+                                    setshow(false)
+                                }}>
                             <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
 
                         </div>

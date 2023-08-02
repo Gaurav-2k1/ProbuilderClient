@@ -34,7 +34,7 @@ const AuthNav = () => {
                 <Link to="/">Probuilder</Link>
             </div>
             <div className='flex flex-row w-3/4 h-min justify-between items-center'>
-                <div className='flex flex-row gap-6'>
+                <div className='hidden md:flex flex-row gap-6 '>
                     <div className='text-lg font-mono '>Home</div>
                     <Link className='text-lg font-mono ' to="/dashboard/builder">Builder</Link>
                     {/* <div >Builder</div> */}
@@ -42,7 +42,7 @@ const AuthNav = () => {
                         <FaCloud size={20}
                             className='text-blue-600' /> Saved</div>
                 </div>
-                <div className='flex flex-row gap-3'>
+                <div className='hidden md:flex flex-row gap-3 '>
                     <div className={`${preActive === 1 ? "bg-icob" : ""} rounded-md p-1  cursor-pointer`}>
                         <PiMonitorLight className='text-white text-3xl' onClick={() => {
                             setPreActive(1)
@@ -65,7 +65,7 @@ const AuthNav = () => {
                     </div>
 
                 </div>
-                <div className='flex flex-row gap-3 items-center mr-10'>
+                <div className='hidden md:flex flex-row gap-3 items-center mr-10'>
                     <GrUndo size={20} className='text-white' />
                     <GrRedo size={20} className='text-white' />
                     <div className='flex flex-row bg-[#101010] rounded-md p-1 items-center gap-2 cursor-pointer relative'
@@ -80,12 +80,12 @@ const AuthNav = () => {
                         }
                     </div>
                     <div className='rounded-md flex flex-row
-                px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
+                    px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
                         <PiCloudArrowUpThin size={20} className='text-white ' />
                         <p className='text-lg font-MuseoModerno'>Save</p>
                     </div>
                     <div className='rounded-md flex flex-row
-                px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
+                    px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
                         <BsRocketTakeoffFill size={20} className='text-white' />
                         <p className='text-lg font-MuseoModerno'>Publish</p>
                     </div>
@@ -99,17 +99,17 @@ const AuthNav = () => {
                             <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
                         </button>
                     </>
-                    {/* {
 
-
-                    <img src={dp}
-                        className='rounded-full' width={40} height={40} alt='dp' />
-
-                } */}
 
                 </div>
             </div>
-
+            <>{token !== null && <ProfileDropdown />}
+                <button className="mr-4 md:hidden hidden" onClick={() => {
+                    dispatch(logout(navigate))
+                }}>
+                    <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+                </button>
+            </>
         </div>
 
     )
