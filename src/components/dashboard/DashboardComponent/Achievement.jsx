@@ -80,7 +80,7 @@ const Achievement = () => {
                     achievement.map((data, i) => {
                         return (
                             <div key={i} className='w-full min-h-10 h-full py-2 bg-bground my-2
-                        items-center justify-between flex flex-row rounded-lg px-4'>
+                        items-center justify-between flex flex-row rounded-lg px-4 font-DMSans'>
                                 <span className='w-4/5'>{data.title}</span>
                                 <MdDelete className='text-2xl text-red-400 cursor-pointer'
                                     onClick={() => {

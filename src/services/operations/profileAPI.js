@@ -9,6 +9,7 @@ const {
   GET_USER_DETAILS_API,
   GET_USER_ENROLLED_COURSES_API,
   GET_INSTRUCTOR_DATA_API,
+  UPLOAD_RESUME_API
 } = profileEndpoints
 
 export function getUserDetails(token, navigate) {
@@ -82,4 +83,36 @@ export async function getInstructorData(token) {
   }
   toast.dismiss(toastId)
   return result
+}
+
+export function updateResumePic(token, formData) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...")
+    try {
+      const response = await apiConnector(
+        "PUT",
+        UPLOAD_RESUME_API,
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        }
+      )
+      console.log(
+        "RESUME_UPLOAD_API API RESPONSE............",
+        response
+      )
+
+      if (!response.data.success) {
+        throw new Error(response.data.message)
+      }
+      toast.success("Resume Updated Successfully")
+      return response.data
+
+    } catch (error) {
+      console.log("RESUME_UPLOAD_API API ERROR............", error)
+      toast.error("Could Not Update Resume")
+    }
+    toast.dismiss(toastId)
+  }
 }

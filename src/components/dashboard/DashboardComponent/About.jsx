@@ -118,7 +118,7 @@ const About = () => {
 
 
                 {/* <p>Add Home Image</p> */}
-                <div className="flex flex-row gap-3 w-full items-center 
+                <div className="flex flex-row gap-1 w-full items-center 
                     h-full ">
                     <span className='relative w-full h-full 
                         items-center pl-12 text-sm 

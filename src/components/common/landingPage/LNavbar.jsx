@@ -1,41 +1,51 @@
 import React, { useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { RxCross1 } from 'react-icons/rx'
 import { matchPath, useLocation } from "react-router-dom"
 import { NavbarLinks } from '../../../data/navbar-links'
+import ProfileDropdown from '../../core/Auth/ProfileDropdown'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../../services/operations/authAPI'
+import { AiOutlineMenu } from 'react-icons/ai'
 const LNavbar = () => {
 
-    // const { token } = useSelector((state) => state.auth)
+    const { token } = useSelector((state) => state.auth)
     // const { user } = useSelector((state) => state.profile)
     const [show, setshow] = useState(false)
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const location = useLocation()
     const matchRoute = (route) => {
         return matchPath({ path: route }, location.pathname)
     }
     return (
-        <div className='flex  flex-row h-16 py-4 w-screen  items-center justify-between bg-[#fff] px-5 
+        <div className='flex  flex-row h-16  w-screen  items-center justify-between bg-[#fff] px-5 
         z-50 border-b border-[#5E5E5E] border-opacity-80 border-solid relative'>
             <div className='text-3xl font-MuseoModerno navhead font-bold cursor-pointer 
         '>
                 <Link to="/">Probuilder</Link>
             </div>
-            <div className='flex justify-around flex-row h-min  items-center bg-[#fff]'>
-                <nav className="hidden md:block">
-                    <ul className="flex gap-x-6">{NavbarLinks.map((link, index) => (
-                        <li key={index}>
+            <div className='flex justify-around flex-row h-full  items-center bg-[#fff]'>
+                <nav className="hidden md:block h-full  items-center">
+                    <ul className="flex gap-x-6 h-full  items-center">{NavbarLinks.map((link, index) => (
+                        <li key={index} >
 
-                            <Link to={link?.path}>
+                            <Link to={link?.path} className='relative'>
                                 <p
-                                    className={`font-DMSans text-lg  ${matchRoute(link?.path)
+                                    className={`font-DMSans  text-lg  ${matchRoute(link?.path)
                                         ? "text-icob font-bold"
                                         : "text-[#5E5E5E] font-normal"
                                         }`}
                                 >
                                     {link.title}
                                 </p>
+                                <div className={`hidden md:block absolute top-[37px] rounded-tl-lg rounded-br-lg left-0 w-full h-2 ${matchRoute(link?.path)
+                                    ? "bg-icob"
+                                    : ""
+                                    } delay-110 ease-in transition-all`} ></div>
                             </Link>
+
 
                         </li>
                     ))}
@@ -45,20 +55,24 @@ const LNavbar = () => {
 
 
             </div>
-            <div className='hidden md:flex flex-row gap-3 items-center '>
+            <div className='md:flex hidden'>
+                {token !== null ? <ProfileDropdown /> :
+                    <div className='hidden md:flex flex-row gap-3 items-center '>
+                        <div className='rounded-md flex flex-row px-4 py-1 items-center bg-white gap-2 cursor-pointer border border-gray-400 border-solid border-opacity-80 '>
+                            <Link to="/login" className='text-lg text-black font-DMSans'>Login</Link>
+                        </div>
+                        <div className='rounded-md flex flex-row px-4 py-1 items-center bg-icob gap-2 cursor-pointer'>
+                            <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
 
-
-                <div className='rounded-md flex flex-row
-                px-4 py-1 items-center bg-white gap-2 cursor-pointer
-                border border-gray-400 border-solid border-opacity-80 '>
-                    <Link to="/login" className='text-lg text-black font-DMSans'>Login</Link>
-                </div>
-                <div className='rounded-md flex flex-row
-                px-4 py-1 items-center bg-icob gap-2 cursor-pointer'>
-                    <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
-
-                </div>
+                        </div>
+                    </div>}
+                <button className="mr-4 md:hidden hidden" onClick={() => {
+                    dispatch(logout(navigate))
+                }}>
+                    <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+                </button>
             </div>
+
             {
                 show ? <div className={`
                 flex flex-col fixed bg-white w-full h-full px-5 z-40 top-0 right-0 
@@ -68,26 +82,27 @@ const LNavbar = () => {
                             <li key={i} className='hover:text-slate-500  
                             delay-100
                          text-black font-semibold font-roboto-flex cursor-pointer list-none text-2xl'>
-                                <Link href={data.path} onClick={() => {
+                                <Link to={data.path} onClick={() => {
                                     setshow(false)
                                 }}>{data.title}</Link>
                             </li>
                         )
                     })}
+
                     <div className='flex md:hidden flex-col gap-3 items-center '>
 
 
                         <div className='rounded-md flex flex-row
                 px-4 py-1 items-center bg-white gap-2 cursor-pointer
                 border border-gray-400 border-solid border-opacity-80 ' onClick={() => {
-                                    setshow(false)
-                                }}>
+                                setshow(false)
+                            }}>
                             <Link to="/login" className='text-lg text-black font-DMSans' >Login</Link>
                         </div>
                         <div className='rounded-md flex flex-row
                 px-4 py-1 items-center bg-icob gap-2 cursor-pointer' onClick={() => {
-                                    setshow(false)
-                                }}>
+                                setshow(false)
+                            }}>
                             <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
 
                         </div>

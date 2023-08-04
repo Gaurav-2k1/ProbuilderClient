@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { AiOutlineCaretDown } from "react-icons/ai"
 import { VscDashboard, VscSignOut } from "react-icons/vsc"
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import useOnClickOutside from "../../../hooks/useOnClickOutside"
 import { logout } from "../../../services/operations/authAPI"
@@ -16,6 +16,8 @@ export default function ProfileDropdown() {
 
   useOnClickOutside(ref, () => setOpen(false))
 
+  var location = useLocation()
+
   if (!user) return null
 
   return (
@@ -26,7 +28,11 @@ export default function ProfileDropdown() {
           alt={`profile-${user?.firstName}`}
           className="aspect-square md:w-[30px] w-[35px] rounded-full object-cover"
         />
-        <AiOutlineCaretDown className="md:text-sm text-white text-lg" />
+        {
+          location.pathname === "/dashboard/builder" ? <AiOutlineCaretDown className="md:text-sm text-white text-lg" />
+            : <AiOutlineCaretDown className="md:text-sm text-black text-lg" />
+
+        }
       </div>
       {open && (
         <div

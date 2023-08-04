@@ -14,16 +14,18 @@ import Projects from './DashboardComponent/Projects'
 import Experience from './DashboardComponent/Experience'
 import Education from './DashboardComponent/Education'
 import Achievement from './DashboardComponent/Achievement'
+import UploadResume from './DashboardComponent/UploadResume'
+import Skills from './DashboardComponent/Skills'
 
 
 const SideForm = () => {
 
     return (
         <div className='flex flex-col  bg-[#2D2D2D] h-full
-        border-t min-w-[250px] border-opacity-80  border-bground border-solid
-        overflow-auto no-scrollbar'>
+        border-t min-w-[300px] border-opacity-80  border-bground border-solid
+         no-scrollbar overflow-auto'>
             <Tile title="Upload Resume" >
-
+                <UploadResume />
             </Tile>
             <Tile title="Home" >
                 <Home />
@@ -34,7 +36,9 @@ const SideForm = () => {
             <Tile title="Projects" >
                 <Projects />
             </Tile>
-            <Tile title="Skills" ></Tile>
+            <Tile title="Skills" >
+                <Skills />
+            </Tile>
             <Tile title="Experience" >
                 <Experience />
             </Tile>

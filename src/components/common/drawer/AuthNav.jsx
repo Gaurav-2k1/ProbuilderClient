@@ -21,15 +21,11 @@ const AuthNav = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { token } = useSelector((state) => state.auth)
-
     // const { data: session } = useSession();
-
-
-
     return (
         <div className='flex  flex-row h-16 py-4 w-screen  items-center justify-between bg-[#222222] px-5 
         z-50'>
-            <div className='text-3xl font-MuseoModerno navhead font-bold cursor-pointer 
+            <div className='text-3xl font-MuseoModerno authnavhead font-bold cursor-pointer 
             '>
                 <Link to="/">Probuilder</Link>
             </div>
@@ -103,13 +99,13 @@ const AuthNav = () => {
 
                 </div>
             </div>
-            <>{token !== null && <ProfileDropdown />}
+            <div className='md:hidden block'>{token !== null && <ProfileDropdown />}
                 <button className="mr-4 md:hidden hidden" onClick={() => {
                     dispatch(logout(navigate))
                 }}>
                     <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
                 </button>
-            </>
+            </div>
         </div>
 
     )

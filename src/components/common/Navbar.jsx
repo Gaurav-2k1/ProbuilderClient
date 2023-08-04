@@ -16,11 +16,10 @@ const Navbar = () => {
     return (
         <>
             {
-                location.pathname === "/template/tempone" || location.pathname === `/web/${id}` ? <></> :
+                location.pathname === "/template/tempone" || location.pathname === `/web/${id}` || location.pathname === "/dashboard/builder" ? <></> :
                     <>
                         {
-                            token ? <AuthNav /> :
-                                <LNavbar />
+                            <LNavbar />
                         }
                     </>
 

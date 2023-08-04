@@ -154,6 +154,14 @@ body {
   visibility: visible;
 }
 
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;/* Add some padding to make space for the custom arrow */
+ /* Replace #ffffff with the background color of your choice */
+  
+}
+
 /* .back {
   background: #313030;
 } */
@@ -163,6 +171,13 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.authnavhead{
+  background: linear-gradient(256deg, #1A0D68 0%, #0400D3 31.77%, #BBC8FF 54.17%, #454DFD 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 .mainhero {
