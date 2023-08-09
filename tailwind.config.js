@@ -12,6 +12,7 @@ module.exports = {
         bground: "#313030",
         primary: "#222",
         placeholder: "rgba(255, 255, 255, 0.17)",
+        logplace:"#00000033",
         icob: "#454DFD",
         blueviolet: {
           "100": "#454dfd",
@@ -46,6 +47,10 @@ module.exports = {
         "5xl": "24px",
         mid: "17px",
         mini: "15px",
+      },
+      maxWidth: {
+        maxContent: "1260px",
+        maxContentTab: "650px"
       },
     },
 

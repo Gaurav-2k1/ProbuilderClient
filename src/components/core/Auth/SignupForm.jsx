@@ -61,12 +61,12 @@ function SignupForm() {
       email: "",
       password: "",
       confirmPassword: "",
-      contactNumber:""
+      contactNumber: ""
     })
   }
 
   // data to pass to Tab component
-  
+
 
   return (
     <div>
@@ -74,7 +74,7 @@ function SignupForm() {
       {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
-        <div className="flex gap-x-4">
+        <div className="flex justify-between w-full">
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
               First Name <sup className="text-white">*</sup>
@@ -119,7 +119,7 @@ function SignupForm() {
           />
         </label>
         <div className="flex flex-col gap-2">
-          <label htmlFor="phonenumber" className="lable-style">
+          <label htmlFor="phonenumber" className="form-label text-placeholder">
             Phone Number
           </label>
 
@@ -130,11 +130,12 @@ function SignupForm() {
                 name="firstname"
                 id="firstname"
                 placeholder="Enter first name"
-                className="form-style"
+                className="rounded-lg border border-[#00000033] border-solid
+                 bg-white text-black p-3 text-[16px] leading-[24px] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-placeholder placeholder:font-DMSans focus:outline-none font-DMSans"
               >
                 {CountryCode.map((ele, i) => {
                   return (
-                    <option key={i} value={ele.code}>
+                    <option className="text-black" key={i} value={ele.code}>
                       {ele.code} -{ele.country}
                     </option>
                   )
@@ -207,7 +208,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-white py-[8px] px-[12px] font-medium text-black"
+          className="mt-6 rounded-[8px] bg-icob py-[8px] px-[12px] font-medium text-white"
         >
           Create Account
         </button>

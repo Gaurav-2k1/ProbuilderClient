@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { IoAddSharp } from "react-icons/io5"
+// import { SKILL_TYPE } from '../../../utils/constants'
 const Skills = () => {
+    // const [skillType, setSkillType] = useState(SKILL_TYPE)
+
     const [Technical, setTechnical] = useState([])
     const [Softwares, setSoftware] = useState([])
     const [Interpersonal, setInterPersonal] = useState([])
@@ -22,7 +25,7 @@ const SkillTile = ({ skill, arr, setarr }) => {
         name: "",
         exp: ""
     })
-    const [tech, settech] = useState([])
+    // const [tech, settech] = useState([])
 
     const di = () => {
         const { name, exp } = Skills;
@@ -40,7 +43,10 @@ const SkillTile = ({ skill, arr, setarr }) => {
         setSkill((prevObject) => ({ ...prevObject, [name]: value }));
     };
     return <div className='flex flex-col w-full py-2'>
-        <p className='text-basse font-DMSans '>{skill}</p>
+        <div className='flex flex-row justify-between my-2'>
+            <p className='text-basse font-DMSans '>{skill}</p>
+            <div className='w-min rounded-2xl cursor-pointer hover:bg-blueviolet-300 bg-icob text-white font-DMSans px-2'>Save</div>
+        </div>
         <div className='flex flex-row h-full w-full gap-1 relative border border-solid border-[#ffffff2b] bg-primary rounded-sm'>
             <input name='name' placeholder='Add any skill you have' type='text' className='w-full py-3 rounded-md bg-primary placeholder:text-[#ffffff2b]
          placeholder:font-DMSans placeholder:text-sm pl-1 text-base font-DMSans' value={Skills.name} onChange={handleInputChange} />

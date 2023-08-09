@@ -50,26 +50,37 @@ const template = [
 const Hero = () => {
     return (
         <div className='flex flex-col w-full h-full'>
-            <div className='w-full h-full md:h-[60vh] gap-4 pb-10 mainhero pt-14 flex flex-col items-center'>
-                <p className='herotext text-[35px] md:text-[40px] font-DMSans font-bold text-center'>
-                    Build Your Professional Portfolio in Minutes
-                </p>
-                <p className='text-lg  w-4/5 md:w-2/5 text-center font-DMSans mt-5 text-[#838894]'>Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson.</p>
-                <div className='w-4/5 md:w-2/5 pt-5 relative '>
-                    <BsSearch className='text-[#333] text-base absolute left-3 bottom-3' />
-                    <input className='bg-white text-black font-DMSans rounded-lg w-full py-2 px-2 pl-10 placeholder:font-DMSans placeholder:text-base placeholder:text-[#333]' placeholder='Search templates by profession or style.' />
+            <div className='w-full h-full min-h-[80vh] md:min-h-[70vh] lg:min-h-[60vh] md:h-full relative rounded-lg'>
+                <div className='w-full h-full bg-black absolute top-0 left-0 z-8 rounded-lg'>
+                <div className='w-full h-full bg-black relative top-0 left-0 z-8 rounded-lg'>
+                    <div className='blur-xl  md:w-20 md:h-20 rounded-full bg-gradient-to-r from-[#bcff2430] via-[#57FF3B] to-[#2BF719] absolute md:bottom-20 md:left-44 z-9'/>
+                    <div className='md:blur-xl blur-3xl w-52 h-52  top-0 left-0 md:w-32 md:h-32 rounded-full bg-gradient-to-l from-[#8400FF] via-[#A9FB22] to-[#E2EAFF] absolute md:top-10 md:left-72 z-9'/>
+                    <div className='blur-xl md:w-20 md:h-20 rounded-full bg-gradient-to-t from-[#FFF5F5] via-[#DA755F] to-[#D6E1FF] absolute md:top-14 md:right-80 z-9'/>
+                    <div className=' md:blur-xl blur-3xl w-44 h-44  bottom-0 right-0 md:w-40 md:h-40 rounded-full bg-gradient-to-t from-[#8400FF] via-[#03007E] to-[#0039CC] absolute md:bottom-10 md:right-20 z-9'/>
                 </div>
-                <div className='mt-3 w-full px-2 overflow-x-auto no-scrollbar py-2 md:w-min flex flex-row gap-3 '>
-                    {
-                        tags.map((data, i) => {
-                            return (
-                                <p key={i} className='min-w-max px-2 py-2 bg-[#1E0000] rounded-lg font-DMSans'>{data.title}</p>
-                            )
-                        })
-                    }
                 </div>
+                <div className='w-full h-full rounded-lg  gap-3 flex flex-col items-center absolute top-0 left-0 z-10    pt-14 '>
+                    <p className='bg-gradient-to-r from-[#FFFFFC] to-[#9EA5FF] text-transparent bg-clip-text text-[35px] md:text-[40px] font-DMSans font-bold text-center'>
+                        Build Your Professional Portfolio in Minutes
+                    </p>
+                    <p className='text-lg  w-4/5 md:w-2/5 text-center font-DMSans mt-5 text-[#838894]'>Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson.</p>
+                    <div className='w-4/5 md:w-2/5 pt-5 relative '>
+                        <BsSearch className='text-[#333] text-base absolute left-3 bottom-3' />
+                        <input className='bg-white text-black font-DMSans rounded-lg w-full py-2 px-2 pl-10 placeholder:font-DMSans placeholder:text-base placeholder:text-[#333]' placeholder='Search templates by profession or style.' />
+                    </div>
+                    <div className='mt-3 w-full px-2 overflow-x-auto no-scrollbar py-2 md:w-min flex flex-row gap-3 '>
+                        {
+                            tags.map((data, i) => {
+                                return (
+                                    <p key={i} className='min-w-max h-max px-2 py-2 bg-[#420b0b] rounded-lg font-DMSans cursor-pointer hover:scale-105 delay-108 ease-in'>{data.title}</p>
+                                )
+                            })
+                        }
+                    </div>
 
+                </div>
             </div>
+
             <div className='flex flex-col md:flex-row mt-10 w-full items-center'>
                 <div className='flex flex-col w-full md:w-1/2 md:px-10'>
                     <p className=' font-bold font-DMSans text-black text-[40px] w-full md:w-[70%] leading-9'>Experience the immense potential of our

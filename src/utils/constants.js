@@ -1,7 +1,7 @@
-export const ACCOUNT_TYPE = {
-  STUDENT: "Student",
-  INSTRUCTOR: "Instructor",
-  ADMIN: "Admin",
+export const SKILL_TYPE = {
+  TECHNICAL: "Technical",
+  SOFTWARE: "Software",
+  INTERPERSONAL: "Interpersonal",
 }
 
 export const COURSE_STATUS = {

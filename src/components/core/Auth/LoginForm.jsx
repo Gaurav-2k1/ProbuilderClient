@@ -72,16 +72,16 @@ function LoginForm() {
           )}
         </span>
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs form-label">
-            Forgot Password
+          <p className="mt-1 ml-auto max-w-max text-xs form-label text-red-600 font-medium hover:underline">
+            Forgot Password ?
           </p>
         </Link>
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-white py-[8px] px-[12px] font-medium text-black font-mono"
+        className="mt-6 rounded-[8px] bg-icob py-[8px] px-[12px] font-medium text-white font-mono"
       >
-        Sign In
+        Login
       </button>
     </form>
   )

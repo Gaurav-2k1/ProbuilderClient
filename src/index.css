@@ -22,7 +22,7 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 9px solid #f1f2ff;
+  border: 9px solid #030082;
   animation: spinner-bulqg1 0.8s infinite linear alternate,
     spinner-oaa3wk 1.6s infinite linear;
 }
@@ -272,11 +272,11 @@ a {
   @apply text-[14px] text-black;
 }  */
   .form-label {
-    @apply text-white font-DMSans
+    @apply text-[#000000a6] font-DMSans
   }
 
   .form-style {
-    @apply rounded-lg bg-primary p-3 text-[16px] leading-[24px] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-placeholder placeholder:font-DMSans focus:outline-none font-DMSans;
+    @apply rounded-lg border text-black border-[#00000033] border-solid bg-white p-3 text-[16px] leading-[24px] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-logplace placeholder:font-DMSans focus:outline-none focus:border-2 font-DMSans;
   }
 
   .inpform {
