@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux'
 import { getUserDetails } from '../../services/operations/profileAPI'
 import Home from './home/Home'
 import About from './about/About'
+import Contact from '../Contact'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const Homepage = () => {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About/>} />
+                <Route path='/contact' element={<Contact/>} />
 
                 <Route
                     path="login"

@@ -275,6 +275,9 @@ a {
     @apply text-[#000000a6] font-DMSans
   }
 
+  .lable-style {
+    @apply text-[14px] text-black font-DMSans;
+  }
   .form-style {
     @apply rounded-lg border text-black border-[#00000033] border-solid bg-white p-3 text-[16px] leading-[24px] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-logplace placeholder:font-DMSans focus:outline-none focus:border-2 font-DMSans;
   }
