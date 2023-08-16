@@ -2,44 +2,43 @@ import { toast } from "react-hot-toast"
 
 // import { setLoading } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector"
-import { AchievementEndPoint } from "../apis";
+import { SkillEndPoint } from "../apis";
 
-const { CREATE_ACHIEVEMENT_API, GET_ACHIEVEMENT_API, DELETE_ACHIEVEMENT_API } = AchievementEndPoint;
-export const addAchievement = async (token, data) => {
-    // console.log(token, data)
-    let result = null
-    console.log(data, token)
+const { CREATE_SKILL_API, GET_SKILL_API, DELETE_SKILL_API } = SkillEndPoint;
+export const addSkill = async (token, data) => {
     const toastId = toast.loading("Loading...")
     try {
-        const response = await apiConnector("POST", CREATE_ACHIEVEMENT_API, data, {
+        const response = await apiConnector("POST", CREATE_SKILL_API, data, {
             Authorization: `Bearer ${token}`,
         })
-        console.log("Education API RESPONSE............", response)
+        console.log("SKILL API RESPONSE............", response)
         if (!response?.data?.success) {
-            throw new Error("Could Not Add Course Details")
+            // toast.error(response.data.error)
+
+            throw new Error(response.data.error)
         }
-        toast.success("Education Details Added Successfully")
-        result = response?.data?.data
+        toast.success("skill Details Added Successfully")
+
     } catch (error) {
-        console.log("Education API ERROR............", error)
+        console.log("skill API ERROR............", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId)
-    return result
 }
 
-export const getAllAchievement = async (token) => {
+export const getAllSkills = async (token) => {
     const toastId = toast.loading("Loading...")
     let result = []
     try {
-        const response = await apiConnector("GET", GET_ACHIEVEMENT_API, null, {
+        const response = await apiConnector("GET", GET_SKILL_API, null, {
             Authorization: `Bearer ${token}`,
         })
         if (!response?.data?.success) {
             throw new Error("Could Not Fetch Projects Categories")
         }
-        // console.log(response)
-        result = response?.data?.data
+        result = response?.data?.data?.skills
+        // console.log(result)
+
     } catch (error) {
         console.log("GET_ALL_Projects_API API ERROR............", error)
         toast.error(error.message)
@@ -48,10 +47,10 @@ export const getAllAchievement = async (token) => {
     return result
 }
 
-export const deleteAchievement = async (data, token) => {
+export const deleteSkill = async (data, token) => {
     const toastId = toast.loading("Loading...")
     try {
-        const response = await apiConnector("DELETE", DELETE_ACHIEVEMENT_API, data, {
+        const response = await apiConnector("DELETE", DELETE_SKILL_API, data, {
             Authorization: `Bearer ${token}`,
         })
         console.log("DELETE Projects API RESPONSE............", response)

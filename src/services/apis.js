@@ -33,6 +33,11 @@ export const AchievementEndPoint = {
   GET_ACHIEVEMENT_API: BASE_URL + "/profile/getAllAchievement",
   DELETE_ACHIEVEMENT_API: BASE_URL + "/profile/deleteAchievement"
 }
+export const SkillEndPoint = {
+  CREATE_SKILL_API: BASE_URL + "/profile/addSkill",
+  GET_SKILL_API: BASE_URL + "/profile/getSkill",
+  DELETE_SKILL_API: BASE_URL + "/profile/deleteAchievement"
+}
 
 // STUDENTS ENDPOINTS
 export const studentEndpoints = {
