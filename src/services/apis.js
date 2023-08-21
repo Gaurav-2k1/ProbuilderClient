@@ -36,7 +36,7 @@ export const AchievementEndPoint = {
 export const SkillEndPoint = {
   CREATE_SKILL_API: BASE_URL + "/profile/addSkill",
   GET_SKILL_API: BASE_URL + "/profile/getSkill",
-  DELETE_SKILL_API: BASE_URL + "/profile/deleteAchievement"
+  DELETE_SKILL_API: BASE_URL + "/profile/deleteSkill"
 }
 
 // STUDENTS ENDPOINTS
@@ -105,4 +105,10 @@ export const settingsEndpoints = {
 
 export const homeEndpoints = {
   UPDATE_HOME_IMAGE: BASE_URL + "/profile/addHomeImage"
+}
+
+export const socialEndpoint = {
+  ADD_SOCIAL_LINK: BASE_URL + "/profile/addsocial",
+  GET_SOCIAL_LINK: BASE_URL + "/profile/getSocial",
+  UPDATE_SOCIAL_LINK: BASE_URL + "/profile/updateSocial"
 }

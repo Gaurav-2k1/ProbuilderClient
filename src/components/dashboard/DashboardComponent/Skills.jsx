@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IoAddSharp } from "react-icons/io5"
+import { AiFillDelete } from 'react-icons/ai'
 import { useDispatch, useSelector } from "react-redux"
-import { addSkill, getAllSkills } from '../../../services/operations/SkillAPI'
+import { addSkill, deleteSkill, getAllSkills } from '../../../services/operations/SkillAPI'
 import { socket } from '../../common/Socket'
 
 // import { SKILL_TYPE } from '../../../utils/constants'
@@ -23,6 +24,14 @@ const Skills = () => {
             console.log(err)
         }
     }
+    const handleDelete = async (skillid) => {
+        await deleteSkill({ skillid: skillid }, token)
+        getSkill()
+        // if (result) {
+        //     setCourses(result)
+        // }
+        // setConfirmationModal(null)
+    }
     useEffect(() => {
         socket.on("skilladded", () => {
             getSkill()
@@ -33,16 +42,16 @@ const Skills = () => {
     }, [])
     return (
         <div className='flex flex-col w-full'>
-            <SkillTile skill="Technical Skills" arr={Technical} setarr={setTechnical} type="Technical" skillty={skillType} />
-            <SkillTile skill="Softwares" arr={Softwares} setarr={setSoftware} type="Software" skillty={skillType} />
-            <SkillTile skill="Interpersonal Skills" arr={Interpersonal} setarr={setInterPersonal} type="Interpersonal" skillty={skillType} />
+            <SkillTile key={1} skill="Technical Skills" arr={Technical} setarr={setTechnical} type="Technical" skillty={skillType} handleDelete={handleDelete} />
+            <SkillTile key={2} skill="Softwares" arr={Softwares} setarr={setSoftware} type="Software" skillty={skillType} handleDelete={handleDelete} />
+            <SkillTile key={3} skill="Interpersonal Skills" arr={Interpersonal} setarr={setInterPersonal} type="Interpersonal" skillty={skillType} handleDelete={handleDelete} />
         </div>
     )
 }
 
 export default Skills
 
-const SkillTile = ({ skill, arr, setarr, type }) => {
+const SkillTile = ({ skill, arr, setarr, type, handleDelete }) => {
 
 
     const [Skills, setSkill] = useState({
@@ -87,6 +96,7 @@ const SkillTile = ({ skill, arr, setarr, type }) => {
         }
 
     }
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setSkill((prevObject) => ({ ...prevObject, [name]: value }));
@@ -94,7 +104,6 @@ const SkillTile = ({ skill, arr, setarr, type }) => {
     return <div className='flex flex-col w-full py-2'>
         <div className='flex flex-row justify-between my-2'>
             <p className='text-basse font-DMSans '>{skill}</p>
-            <div className='w-min rounded-2xl cursor-pointer hover:bg-blueviolet-300 bg-icob text-white font-DMSans px-2'>Save</div>
         </div>
         <div className='flex flex-row h-full w-full gap-1 relative border border-solid border-[#ffffff2b] bg-primary rounded-sm'>
             <input name='title' placeholder='Add any skill you have' type='text' className='w-full py-3 rounded-md bg-primary placeholder:text-[#ffffff2b]
@@ -126,11 +135,21 @@ const SkillTile = ({ skill, arr, setarr, type }) => {
                 arr.map((data, i) => {
                     if (data.skilltype === type) {
                         return (
-                            <div key={i} className={`min-w-14 w-max bg-black  h-min px-4 py-1 font-DMSans rounded-2xl relative cursor-pointer`}>
-                                {data.title.charAt(0) + data.title.slice(1).toLowerCase()}
-                                <div
-                                    style={{ width: `${data.level}` }}
-                                    className={`absolute h-full bg-icob py-1 top-0 left-0 ${data.level > "80%" ? "rounded-2xl" : "rounded-l-2xl"}  opacity-60`}></div></div>
+                            <div className='group relative'>
+                                <div key={i} className={`min-w-14 w-max bg-black  h-min px-4 py-1 font-DMSans rounded-2xl relative cursor-pointer group-hover:brightness-75`}>
+                                    {data.title.charAt(0) + data.title.slice(1).toLowerCase()}
+                                    <div
+                                        style={{ width: `${data.level}` }}
+                                        className={`absolute h-full  bg-icob py-1 top-0 left-0 ${data.level > "80%" ? "rounded-2xl" : "rounded-l-2xl"}  opacity-60`}></div>
+                                </div>
+                                <div className='absolute right-2 top-0 opacity-0 hidden group-hover:block group-hover:opacity-100 cursor-pointer group-hover:top-2 delay-200 ease-in transition-all'>
+                                    <AiFillDelete className='text-lg text-red-600 hover:text-red-500'
+                                        onClick={() => { handleDelete(data._id) }}
+                                    />
+                                </div>
+
+                            </div>
+
                         )
                     }
                 })

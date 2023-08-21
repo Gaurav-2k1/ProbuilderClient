@@ -1,8 +1,6 @@
 import React from 'react'
 import Tile from './formcompo/Tile'
-import { AiFillGithub } from 'react-icons/ai'
-import { FaLinkedinIn, FaFacebook } from 'react-icons/fa'
-import { BsInstagram } from 'react-icons/bs'
+
 import Home from './DashboardComponent/Home'
 import About from './DashboardComponent/About'
 import Projects from './DashboardComponent/Projects'
@@ -12,6 +10,7 @@ import Achievement from './DashboardComponent/Achievement'
 import UploadResume from './DashboardComponent/UploadResume'
 import Skills from './DashboardComponent/Skills'
 import { IoIosArrowBack } from "react-icons/io"
+import SocialLink from './DashboardComponent/SocialLink'
 
 const SideForm = ({ show, setShow }) => {
 
@@ -49,34 +48,10 @@ const SideForm = ({ show, setShow }) => {
 
                     </Tile>
                     <Tile title="Social Links" >
-                        <div className='flex flex-row gap-2 items-center'>
-                            <div className='border border-blue-600 border-solid p-3 rounded-md'>
-                                <AiFillGithub size={20} color='white' />
-                            </div>
-                            {/* <InputBox placeholdertext="Github" iconp={false}
-                        inp={true} icons={false} type="text" /> */}
-                        </div>
-                        <div className='flex flex-row gap-2 items-center'>
-                            <div className='border border-blue-600 border-solid p-3 rounded-md'>
-                                <FaLinkedinIn size={20} color='white' />
-                            </div>
-                            {/* <InputBox placeholdertext="LinkedIn" iconp={false}
-                        inp={true} icons={false} type="text" /> */}
-                        </div><div className='flex flex-row gap-2 items-center'>
-                            <div className='border border-blue-600 border-solid p-3 rounded-md'>
-                                <BsInstagram size={20} color='white' />
-                            </div>
-                            {/* <InputBox placeholdertext="Instagram" iconp={false}
-                        inp={true} icons={false} type="text" /> */}
-                        </div><div className='flex flex-row gap-2 items-center'>
-                            <div className='border border-blue-600 border-solid p-3 rounded-md'>
-                                <FaFacebook size={20} color='white' />
-                            </div>
-                            {/* <InputBox placeholdertext="FaceBook" iconp={false}
-                        inp={true} icons={false} type="text" /> */}
-                        </div>
 
-
+                        <SocialLink />
+                       
+                       
 
 
                     </Tile>
