@@ -13,6 +13,7 @@ import { setView } from '../../../slices/pageSlice'
 import ProfileDropdown from '../../core/Auth/ProfileDropdown'
 import { logout } from '../../../services/operations/authAPI'
 import { AiOutlineMenu } from 'react-icons/ai'
+import TemplateDrawer from '../../dashboard/TemplateDrawer'
 
 const AuthNav = () => {
     const [size, setsize] = useState(100)
@@ -85,8 +86,11 @@ const AuthNav = () => {
                         <BsRocketTakeoffFill size={20} className='text-white' />
                         <p className='text-lg font-MuseoModerno'>Publish</p>
                     </div>
-                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-md'>
+                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-md relative group'>
                         <IoDownloadOutline size={20} className='text-white' />
+                        <div className='hidden group-hover:block delay-110 transition-all ease-linear'>
+                            <TemplateDrawer />
+                        </div>
                     </div>
                     <>{token !== null && <ProfileDropdown />}
                         <button className="mr-4 md:hidden" onClick={() => {
@@ -106,6 +110,7 @@ const AuthNav = () => {
                     <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
                 </button>
             </div>
+
         </div>
 
     )

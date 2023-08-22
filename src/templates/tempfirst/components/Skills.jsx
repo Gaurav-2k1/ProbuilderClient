@@ -25,7 +25,7 @@ const Skills = ({ user }) => {
       <p className='text-center text-lg font-mono'>Skills i learned over the years</p>
       <p className='text-center text-base font-roboto-flex'>Lets explore my skills </p>
       <div className='flex flex-row mt-10 md:gap-10 gap-2 justify-center'>
-        <div className='cursor-pointer p-2 min-w-max  md:p-4 font-mono bg-gray-100 text-white' onClick={
+        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Technical" ? "border border-solid border-icob" : ""} text-white`} onClick={
           () => {
             showSkill("Technical")
 
@@ -33,7 +33,7 @@ const Skills = ({ user }) => {
         }>
           Technical Skills
         </div>
-        <div className='cursor-pointer p-2 min-w-max  md:p-4 font-mono bg-gray-100 text-white'
+        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Interpersonal" ? "border border-solid border-icob" : ""} text-white`}
           onClick={
             () => {
               showSkill("Interpersonal")
@@ -42,7 +42,7 @@ const Skills = ({ user }) => {
           }>
           Interpersonal
         </div>
-        <div className='cursor-pointer p-2 min-w-max  md:p-4 font-mono bg-gray-100 text-white'
+        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Software" ? "border border-solid border-icob" : ""} text-white`}
           onClick={
             () => {
               showSkill("Software")
@@ -80,7 +80,7 @@ export default Skills;
 
 const Skillscom = ({ title, level }) => {
   return (
-    <div className='flex flex-col md:w-1/4 w-1/3 md:m-5 m-3'>
+    <div className='flex flex-col md:w-1/4 w-1/3 md:m-5 m-3 delay-150 ease-linear transition-all'>
       <p className='text-base font-mono'>{title}</p>
       <div className='w-full bg-gray-100 h-2 rounded-xl mt-2'>
         <div style={{ width: `${level}` }}

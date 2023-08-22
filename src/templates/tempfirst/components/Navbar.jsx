@@ -24,9 +24,7 @@ const Navbar = ({ user }) => {
 
         {
             name: "Contact"
-        }, {
-            name: "Download CV"
-        }
+        },
 
     ]
 
@@ -46,6 +44,13 @@ const Navbar = ({ user }) => {
                         )
                     })
                 }
+                <div className='font-normal font-mono no-underline text-white cursor-pointer'
+                    onClick={() => {
+                        window.open(user?.profile?.resume, '_blank', 'noopener,noreferrer');
+
+                    }}>
+                    Download CV
+                </div>
 
             </div>
             {
@@ -62,14 +67,14 @@ const Navbar = ({ user }) => {
                             </li>
                         )
                     })}
-                    {/* <div className='text-sm w-max inline-block px-4 py-2 bg-red-600 rounded-lg
+                    <div className='text-sm w-max inline-block px-4 py-2 bg-red-600 rounded-lg
                  text-white font-semibold cursor-pointer hover:bg-red-800 delay-150 ease-in'
                         onClick={() => {
-                            window.open("https://drive.google.com/file/d/1xXZyOjCi9xBoAb3i8w8nrAGANpro9ahB/view?usp=sharing", '_blank', 'noopener,noreferrer');
+                            window.open(user?.profile?.resume, '_blank', 'noopener,noreferrer');
 
                         }}>
                         Download CV
-                    </div> */}
+                    </div>
                 </div> : <></>
             }
             {

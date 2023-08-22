@@ -92,6 +92,7 @@ const Tempfirst = () => {
     // console.log()
     return (
         <>
+        
             {
                 loading ? <div className=' w-screen h-screen bg-gray-400 flex items-center justify-center'><div className='spinner'></div></div> :
                     <>

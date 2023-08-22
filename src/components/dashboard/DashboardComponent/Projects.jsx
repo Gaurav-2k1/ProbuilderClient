@@ -16,7 +16,7 @@ const Projects = () => {
     const dispatch = useDispatch()
     const { token } = useSelector((state) => state.auth)
     const [loading, setLoading] = useState(false)
-
+    const [active, setActive] = useState(false);
     const {
         register,
         handleSubmit,
@@ -28,7 +28,6 @@ const Projects = () => {
     useEffect(() => {
         if (isSubmitSuccessful) {
             getProj()
-
             reset({
                 title: "",
                 description: "",
@@ -36,14 +35,16 @@ const Projects = () => {
                 demolink: "",
             })
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reset, isSubmitSuccessful])
     const submitProfileForm = async (data) => {
 
         console.log("Form Data - ", data)
+
         try {
             dispatch(addProject(token, data))
             socket.emit("newProjAdded")
+
 
 
         } catch (error) {
@@ -65,117 +66,144 @@ const Projects = () => {
     const [project, setProject] = useState([])
     const getProj = async () => {
         try {
+
             setLoading(true)
+
             let re = await getAllProjects(token)
             console.log(re.projects)
             setProject(re.projects)
             setLoading(false)
+
         } catch (error) {
             console.log("ERROR MESSAGE - ", error.message)
         }
 
     }
-    
+
     useEffect(() => {
-        socket.on("error",(err)=>{
+        socket.on("error", (err) => {
             console.log(err)
         })
         socket.on('Projectadded', (projects) => {
             setProject(projects)
-            console.log("New project added")
+
+
+            console.log(project)
         });
         console.log(socket)
         getProj()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+   
     return (
         <>
             {loading ? <div className='flex w-full h-full justify-center p-4'><div className="spinner"></div></div> : <div className='flex flex-col w-full h-full'>
+
+                <>
+                    {
+                        project.map((data, i) => {
+                            return (
+                                <div key={i} className='w-full h-10 bg-bground my-2
+                        items-center justify-between flex flex-row rounded-lg px-4 font-DMSans'>
+                                    <span>{data.title}</span>
+                                    <MdDelete className='text-lg text-red-400 cursor-pointer' onClick={() => {
+                                        handleDelete(data._id)
+                                    }} />
+                                </div>
+                            )
+                        })
+                    }
+                    <div className='flex flex-row justify-between py-3 items-center' >
+                        <p className='text-red-500 font-DMSans text-sm cursor-pointer  ' onClick={() => setActive(true)}>
+                            + Add one more
+
+                        </p>
+                        {
+                            active && <p className='text-white bg-icob rounded-md font-DMSans text-sm cursor-pointer py-1 px-2 ' onClick={() => setActive(false)}>
+                                Cancel
+                            </p>
+                        }
+
+                    </div>
+                </>
                 {
-                    project.map((data, i) => {
-                        return (
-                            <div key={i} className='w-full h-10 bg-bground my-2
-                        items-center justify-between flex flex-row rounded-lg px-4'>
-                                <span>{data.title}</span>
-                                <MdDelete className='text-lg text-red-400 cursor-pointer' onClick={() => {
-                                    handleDelete(data._id)
-                                }} />
+                    active ?
+
+                        <form onSubmit={handleSubmit(submitProfileForm)}>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    id="title"
+                                    placeholder="Project Title"
+                                    className="inpform"
+                                    {...register("title", { required: true })}
+                                />
+                                {errors.firstName && (
+                                    <span className="-mt-1 text-[12px] text-yellow-100">
+                                        Please enter your first name.
+                                    </span>
+                                )}
                             </div>
-                        )
-                    })
-                }
-                <form onSubmit={handleSubmit(submitProfileForm)}>
-                    <div>
-                        <input
-                            type="text"
-                            name="title"
-                            id="title"
-                            placeholder="Project Title"
-                            className="inpform"
-                            {...register("title", { required: true })}
-                        />
-                        {errors.firstName && (
-                            <span className="-mt-1 text-[12px] text-yellow-100">
-                                Please enter your first name.
-                            </span>
-                        )}
-                    </div>
-                    <div>
-                        <textarea
-                            rows={4}
-                            type="text"
-                            name="description"
-                            id="description"
-                            placeholder="Description"
-                            className="inpform"
-                            {...register("description", { required: true })}
-                        />
-                        {errors.firstName && (
-                            <span className="-mt-1 text-[12px] text-yellow-100">
-                                Please enter your first name.
-                            </span>
-                        )}
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="image"
-                            id="image"
-                            placeholder="Upload Image Here"
-                            className="inpform"
-                            {...register("image", { required: true })}
-                        />
-                        {errors.firstName && (
-                            <span className="-mt-1 text-[12px] text-yellow-100">
-                                Please enter your destination.
-                            </span>
-                        )}
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="demolink"
-                            id="demolink"
-                            placeholder="Enter Live Demo Link"
-                            className="inpform"
-                            {...register("demolink", { required: true })}
-                        />
-                        {errors.firstName && (
-                            <span className="-mt-1 text-[12px] text-yellow-100">
-                                Please enter your description.
-                            </span>
-                        )}
-                    </div>
-                    <button className='rounded-md flex flex-row w-full
+                            <div>
+                                <textarea
+                                    rows={4}
+                                    type="text"
+                                    name="description"
+                                    id="description"
+                                    placeholder="Description"
+                                    className="inpform"
+                                    {...register("description", { required: true })}
+                                />
+                                {errors.firstName && (
+                                    <span className="-mt-1 text-[12px] text-yellow-100">
+                                        Please enter your first name.
+                                    </span>
+                                )}
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    id="image"
+                                    placeholder="Upload Image Here"
+                                    className="inpform"
+                                    {...register("image", { required: true })}
+                                />
+                                {errors.firstName && (
+                                    <span className="-mt-1 text-[12px] text-yellow-100">
+                                        Please enter your destination.
+                                    </span>
+                                )}
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="demolink"
+                                    id="demolink"
+                                    placeholder="Enter Live Demo Link"
+                                    className="inpform"
+                                    {...register("demolink", { required: true })}
+                                />
+                                {errors.firstName && (
+                                    <span className="-mt-1 text-[12px] text-yellow-100">
+                                        Please enter your description.
+                                    </span>
+                                )}
+                            </div>
+                            <button className='rounded-md flex flex-row w-full
                 px-3 py-1 items-center bg-icob gap-2 cursor-pointer my-3
                 hover:brightness-75' type='submit'>
-                        {/* <PiCloudArrowUpThin size={20} className='text-white ' /> */}
-                        <p className='text-lg font-MuseoModerno'>Save</p>
+                                {/* <PiCloudArrowUpThin size={20} className='text-white ' /> */}
+                                <p className='text-lg font-MuseoModerno'>Save</p>
 
-                    </button>
+                            </button>
 
-                </form>
+                        </form> : <></>
+
+                }
+
             </div>}
         </>
 

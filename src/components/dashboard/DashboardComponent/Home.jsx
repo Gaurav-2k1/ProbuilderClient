@@ -13,7 +13,7 @@ const Home = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+
     } = useForm()
 
 
@@ -138,11 +138,7 @@ const Home = () => {
                         {...register("firstName", { required: true })}
                         defaultValue={user?.firstName}
                     />
-                    {errors.firstName && (
-                        <span className="-mt-1 text-[12px] text-yellow-100">
-                            Please enter your first name.
-                        </span>
-                    )}
+
                 </div>
                 <div>
                     <input
@@ -154,11 +150,7 @@ const Home = () => {
                         {...register("lastName", { required: true })}
                         defaultValue={user?.lastName}
                     />
-                    {errors.lastName && (
-                        <span className="-mt-1 text-[12px] text-yellow-100">
-                            Please enter your last name.
-                        </span>
-                    )}
+
                 </div>
                 <div>
                     <input
@@ -170,11 +162,7 @@ const Home = () => {
                         {...register("designation", { required: true })}
                         defaultValue={user?.profile?.designation}
                     />
-                    {errors.designation && (
-                        <span className="-mt-1 text-[12px] text-yellow-100">
-                            Please enter your destination.
-                        </span>
-                    )}
+
                 </div>
                 <div>
                     <textarea
@@ -188,11 +176,7 @@ const Home = () => {
                         {...register("description", { required: true })}
                         defaultValue={user?.profile.description}
                     />
-                    {errors.description && (
-                        <span className="-mt-1 text-[12px] text-yellow-100">
-                            Please enter your description.
-                        </span>
-                    )}
+
                 </div>
 
                 {/* <div className="flex flex-col w-full h-full items-center">

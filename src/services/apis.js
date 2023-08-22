@@ -15,6 +15,7 @@ export const profileEndpoints = {
   GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
   GET_INSTRUCTOR_DATA_API: BASE_URL + "/profile/instructorDashboard",
   UPLOAD_RESUME_API: BASE_URL + "/profile/uploadresume",
+  ADD_RESUME_API: BASE_URL + "/profile/addresume",
 }
 
 // Experience endpoint

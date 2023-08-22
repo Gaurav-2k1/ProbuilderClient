@@ -9,7 +9,8 @@ const {
   GET_USER_DETAILS_API,
   GET_USER_ENROLLED_COURSES_API,
   GET_INSTRUCTOR_DATA_API,
-  UPLOAD_RESUME_API
+  UPLOAD_RESUME_API,
+  ADD_RESUME_API
 } = profileEndpoints
 
 export function getUserDetails(token, navigate) {
@@ -37,6 +38,29 @@ export function getUserDetails(token, navigate) {
     toast.dismiss(toastId)
     dispatch(setLoading(false))
   }
+}
+
+export const addResumeLink = async (token, data) => {
+  // console.log(token, data)
+  let result = null
+  console.log(data, token)
+  const toastId = toast.loading("Loading...")
+  try {
+    const response = await apiConnector("PUT", ADD_RESUME_API, data, {
+      Authorization: `Bearer ${token}`,
+    })
+    console.log("Education API RESPONSE............", response)
+    if (!response?.data?.success) {
+      throw new Error("Could Not Add Course Details")
+    }
+    toast.success("Education Details Added Successfully")
+    result = response?.data?.data
+  } catch (error) {
+    console.log("Education API ERROR............", error)
+    toast.error(error.message)
+  }
+  toast.dismiss(toastId)
+  return result
 }
 
 export async function getUserEnrolledCourses(token) {

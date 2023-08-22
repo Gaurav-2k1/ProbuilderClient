@@ -15,6 +15,7 @@ import { getUserDetails } from '../../services/operations/profileAPI'
 import Home from './home/Home'
 import About from './about/About'
 import Contact from '../Contact'
+import TempSecond from '../Temptwo/TempSecond'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -32,8 +33,8 @@ const Homepage = () => {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About/>} />
-                <Route path='/contact' element={<Contact/>} />
+                <Route path='/about' element={<About />} />
+                <Route path='/contact' element={<Contact />} />
 
                 <Route
                     path="login"
@@ -86,6 +87,7 @@ const Homepage = () => {
 
                 </Route>
                 <Route path='/template/tempone' element={<Tempfirst />} />
+                <Route path='/template/temptwo' element={<TempSecond />} />
 
             </Routes>
         </div>

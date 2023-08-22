@@ -9,6 +9,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        transparent: "transparent",
+        secondary: "#E7F7F4",
+        tertiary: "#0F0D1C",
         bground: "#313030",
         primary: "#222",
         placeholder: "rgba(255, 255, 255, 0.17)",

@@ -38,7 +38,7 @@ const Education = () => {
             console.log("ERROR MESSAGE - ", error.message)
         }
     }
-    const [ loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [education, setEducation] = useState([])
     const getExp = async () => {
         try {
@@ -68,112 +68,131 @@ const Education = () => {
         });
         getExp()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    const [active, setActive] = useState(false);
+
     return (
         <>
             {loading ? <div className='flex w-full h-full justify-center p-4'><div className="spinner"></div></div> : <div className='flex flex-col w-full h-full'>
-                {
-                    education.map((data, i) => {
-                        return (
-                            <div key={i} className='w-full h-10 bg-bground my-2
-                    items-center justify-between flex flex-row rounded-lg px-4'>
-                                <span>{data.title}</span>
-                                <MdDelete className='text-lg text-red-400 cursor-pointer' onClick={() => {
-                                    handleDelete(data._id)
-                                }} />
-                            </div>
-                        )
-                    })
-                }
-        <form onSubmit={handleSubmit(submitProfileForm)}>
-            <div>
-                <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="Title"
-                    className="inpform"
-                    {...register("title", { required: true })}
-                />
-                {errors.firstName && (
-                    <span className="-mt-1 text-[12px] text-yellow-100">
-                        Please enter your first name.
-                    </span>
-                )}
-            </div>
-            <div>
-                <input
-                    type="text"
-                    name="schoolname"
-                    id="schoolname"
-                    placeholder="schoolname"
-                    className="inpform"
-                    {...register("schoolname", { required: true })}
-                />
-                {errors.firstName && (
-                    <span className="-mt-1 text-[12px] text-yellow-100">
-                        Please enter your first name.
-                    </span>
-                )}
-            </div>
-            <div>
-                <input
-                    type="date"
-                    name="startDate"
-                    id="startDate"
-                    placeholder="Upload Image Here"
-                    className="inpform"
-                    {...register("startDate", { required: true })}
-                />
-                {errors.firstName && (
-                    <span className="-mt-1 text-[12px] text-yellow-100">
-                        Please enter your destination.
-                    </span>
-                )}
-            </div>
-            <div>
-                <input
-                    type="date"
-                    name="endDate"
-                    id="endDate"
-                    placeholder="Enter Live Demo Link"
-                    className="inpform"
-                    {...register("endDate")}
-                />
-                {errors.firstName && (
-                    <span className="-mt-1 text-[12px] text-yellow-100">
-                        Please enter your description.
-                    </span>
-                )}
-            </div>
-           
-            <div>
-                <input
-                    type="text"
-                    name="location"
-                    id="location"
-                    placeholder="Enter Live Demo Link"
-                    className="inpform"
-                    {...register("location", { required: true })}
-                />
-                {errors.firstName && (
-                    <span className="-mt-1 text-[12px] text-yellow-100">
-                        Please enter your description.
-                    </span>
-                )}
-            </div>
+                <>
+                    {
+                        education.map((data, i) => {
+                            return (
+                                <div key={i} className='w-full h-10 bg-bground my-2
+                    items-center justify-between flex flex-row font-DMSans rounded-lg px-4'>
+                                    <span>{data.title}</span>
+                                    <MdDelete className='text-lg text-red-400 cursor-pointer' onClick={() => {
+                                        handleDelete(data._id)
+                                    }} />
+                                </div>
+                            )
+                        })
+                    }
+                    <div className='flex flex-row justify-between py-3 items-center' >
+                        <p className='text-red-500 font-DMSans text-sm cursor-pointer  ' onClick={() => setActive(true)}>
+                            + Add one more
 
-            <button className='rounded-md flex flex-row w-full
+                        </p>
+                        {
+                            active && <p className='text-white bg-icob rounded-md font-DMSans text-sm cursor-pointer py-1 px-2 ' onClick={() => setActive(false)}>
+                                Cancel
+                            </p>
+                        }
+
+                    </div>
+                </>
+                {
+                    active &&
+
+                    <form onSubmit={handleSubmit(submitProfileForm)}>
+                        <div>
+                            <input
+                                type="text"
+                                name="title"
+                                id="title"
+                                placeholder="Title"
+                                className="inpform"
+                                {...register("title", { required: true })}
+                            />
+                            {errors.firstName && (
+                                <span className="-mt-1 text-[12px] text-yellow-100">
+                                    Please enter your first name.
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                name="schoolname"
+                                id="schoolname"
+                                placeholder="schoolname"
+                                className="inpform"
+                                {...register("schoolname", { required: true })}
+                            />
+                            {errors.firstName && (
+                                <span className="-mt-1 text-[12px] text-yellow-100">
+                                    Please enter your first name.
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <input
+                                type="date"
+                                name="startDate"
+                                id="startDate"
+                                placeholder="Upload Image Here"
+                                className="inpform"
+                                {...register("startDate", { required: true })}
+                            />
+                            {errors.firstName && (
+                                <span className="-mt-1 text-[12px] text-yellow-100">
+                                    Please enter your destination.
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <input
+                                type="date"
+                                name="endDate"
+                                id="endDate"
+                                placeholder="Enter Live Demo Link"
+                                className="inpform"
+                                {...register("endDate")}
+                            />
+                            {errors.firstName && (
+                                <span className="-mt-1 text-[12px] text-yellow-100">
+                                    Please enter your description.
+                                </span>
+                            )}
+                        </div>
+
+                        <div>
+                            <input
+                                type="text"
+                                name="location"
+                                id="location"
+                                placeholder="Enter Live Demo Link"
+                                className="inpform"
+                                {...register("location", { required: true })}
+                            />
+                            {errors.firstName && (
+                                <span className="-mt-1 text-[12px] text-yellow-100">
+                                    Please enter your description.
+                                </span>
+                            )}
+                        </div>
+
+                        <button className='rounded-md flex flex-row w-full
                 px-3 py-1 items-center bg-icob gap-2 cursor-pointer my-3
                 hover:brightness-75' type='submit'>
-                {/* <PiCloudArrowUpThin size={20} className='text-white ' /> */}
-                <p className='text-lg font-MuseoModerno'>Save</p>
+                            {/* <PiCloudArrowUpThin size={20} className='text-white ' /> */}
+                            <p className='text-lg font-MuseoModerno'>Save</p>
 
-            </button>
+                        </button>
 
-        </form>
-        </div>}
+                    </form>}
+            </div>}
         </>
     )
 }
