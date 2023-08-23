@@ -1,6 +1,7 @@
 import React from 'react'
 import Tempone from "../../assets/temp/tempone.png"
 import Temptwo from "../../assets/temp/temptwo.png"
+import Tempthree from "../../assets/temp/tempthree.png"
 import { useDispatch } from 'react-redux'
 import { setTemplate } from '../../slices/templateSlice'
 const TemplateDrawer = () => {
@@ -11,6 +12,7 @@ const TemplateDrawer = () => {
 
                 <TemplateBox url={Tempone} link="/template/tempone" />
                 <TemplateBox url={Temptwo} link="/template/temptwo" />
+                <TemplateBox url={Tempthree} link="/template/tempthree" />
 
             </div>
 

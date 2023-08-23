@@ -76,7 +76,7 @@ const LNavbar = () => {
             {
                 show ? <div className={`
                 flex flex-col fixed bg-white w-full h-full px-5 z-40 top-0 right-0 
-                bg-tertiary  delay-100 ease-in transition-all rounded-bl-lg items-center justify-evenly py-28`}>
+                  delay-100 ease-in transition-all rounded-bl-lg items-center justify-evenly py-28`}>
                     {NavbarLinks.map((data, i) => {
                         return (
                             <li key={i} className='hover:text-slate-500  

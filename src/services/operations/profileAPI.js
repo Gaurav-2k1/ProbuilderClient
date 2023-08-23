@@ -49,14 +49,14 @@ export const addResumeLink = async (token, data) => {
     const response = await apiConnector("PUT", ADD_RESUME_API, data, {
       Authorization: `Bearer ${token}`,
     })
-    console.log("Education API RESPONSE............", response)
+    console.log("Resume API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not Add Course Details")
     }
-    toast.success("Education Details Added Successfully")
+    toast.success("Resume Added Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("Education API ERROR............", error)
+    console.log("Resume API ERROR............", error)
     toast.error(error.message)
   }
   toast.dismiss(toastId)

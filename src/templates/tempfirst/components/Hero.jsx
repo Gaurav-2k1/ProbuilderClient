@@ -25,10 +25,7 @@ const Hero = ({ user }) => {
                         <FiFacebook fontSize={30} color='white'
 
                         /></div>
-                    <div className='p-5 bg-gray-200 cursor-pointer  hover:bg-slate-950' onClick={() => {
-                        window.open(user.social.filter((social) => social.title === "linkedIn")[0]?.link, '_blank', 'noopener,noreferrer');
-
-                    }}>
+                    <div className='p-5 bg-gray-200 cursor-pointer  hover:bg-slate-950'  >
                         <FaLinkedinIn fontSize={30} color='white'
 
                         /></div>

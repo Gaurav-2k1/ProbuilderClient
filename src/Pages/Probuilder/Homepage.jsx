@@ -16,6 +16,7 @@ import Home from './home/Home'
 import About from './about/About'
 import Contact from '../Contact'
 import TempSecond from '../Temptwo/TempSecond'
+import Tempthree from '../Tempthree/Tempthree'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -88,6 +89,7 @@ const Homepage = () => {
                 </Route>
                 <Route path='/template/tempone' element={<Tempfirst />} />
                 <Route path='/template/temptwo' element={<TempSecond />} />
+                <Route path='/template/tempthree' element={<Tempthree />} />
 
             </Routes>
         </div>
