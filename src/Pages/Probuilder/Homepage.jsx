@@ -17,6 +17,7 @@ import About from './about/About'
 import Contact from '../Contact'
 import TempSecond from '../Temptwo/TempSecond'
 import Tempthree from '../Tempthree/Tempthree'
+import Template from './template/Template'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -36,6 +37,7 @@ const Homepage = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/template' element={<Template />} />
 
                 <Route
                     path="login"

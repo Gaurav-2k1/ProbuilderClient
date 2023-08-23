@@ -1,18 +1,41 @@
-import React from 'react'
-import Tempone from "../../assets/temp/tempone.png"
-import Temptwo from "../../assets/temp/temptwo.png"
-import Tempthree from "../../assets/temp/tempthree.png"
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTemplate } from '../../slices/templateSlice'
+import { getTemplate } from '../../services/approved/Template'
 const TemplateDrawer = () => {
+    const [template, setTemplate] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    const getTemplateData = async () => {
+        try {
+            let temp = await getTemplate()
+            setTemplate(temp.data)
+            setLoading(false)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        getTemplateData()
+    }, [])
     return (
         <div className='absolute top-12 right-0
           z-50 delay-110 transition-all ease-linear'>
             <div className='flex flex-col  overflow-y-auto p-2 bg-primary border-x border-b border-white  border-solid min-h-[100px] max-h-[40vh]'>
+                {
+                    loading ? <div className=' w-full h-full bg-gray-400 flex items-center justify-center'><div className='spinner'></div></div> : <>
+                        {
+                            template.map((data, i) => {
+                                return (
+                                    <TemplateBox key={i} url={data.preview} link={data.link} />
 
-                <TemplateBox url={Tempone} link="/template/tempone" />
-                <TemplateBox url={Temptwo} link="/template/temptwo" />
-                <TemplateBox url={Tempthree} link="/template/tempthree" />
+                                )
+                            })
+                        }
+
+                    </>
+                }
+
 
             </div>
 

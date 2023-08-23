@@ -78,6 +78,9 @@ export const projectEndpoint = {
 export const approved = {
   APPROVED_API: BASE_URL + "/profile/getUser",
 }
+export const template = {
+  TEMPLATE_API: BASE_URL + "/auth/getTemplate",
+}
 
 // CATAGORIES API
 export const categories = {

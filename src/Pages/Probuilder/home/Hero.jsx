@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import hero from "../../../assets/Images/heroimg.png"
 import herosec from "../../../assets/Images/herosec.png"
@@ -15,6 +15,7 @@ import de3 from "../../../assets/temp/de3.png"
 import last from "../../../assets/temp/last.png"
 import SeeMore from '../../../components/common/landingPage/SeeMore'
 import Opdata from '../../../components/common/landingPage/Opdata'
+import { getTemplate } from '../../../services/approved/Template'
 const tags = [
     {
         title: "scienist"
@@ -31,7 +32,7 @@ const tags = [
     }
 ]
 
-const template = [
+const templates = [
     {
         url: hero
     }, {
@@ -48,16 +49,29 @@ const template = [
 ]
 
 const Hero = () => {
+    const [template, setTemplate] = useState([])
+
+    const getTemplateData = async () => {
+        try {
+            let temp = await getTemplate()
+            setTemplate(temp.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        getTemplateData()
+    }, [])
     return (
         <div className='flex flex-col w-full h-full'>
             <div className='w-full h-full min-h-[80vh] md:min-h-[70vh] lg:min-h-[60vh] md:h-full relative rounded-lg'>
                 <div className='w-full h-full bg-black absolute top-0 left-0 z-8 rounded-lg'>
-                <div className='w-full h-full bg-black relative top-0 left-0 z-8 rounded-lg'>
-                    <div className='blur-xl  md:w-20 md:h-20 rounded-full bg-gradient-to-r from-[#bcff2430] via-[#57FF3B] to-[#2BF719] absolute md:bottom-20 md:left-44 z-9'/>
-                    <div className='md:blur-xl blur-3xl w-52 h-52  top-0 left-0 md:w-32 md:h-32 rounded-full bg-gradient-to-l from-[#8400FF] via-[#A9FB22] to-[#E2EAFF] absolute md:top-10 md:left-72 z-9'/>
-                    <div className='blur-xl md:w-20 md:h-20 rounded-full bg-gradient-to-t from-[#FFF5F5] via-[#DA755F] to-[#D6E1FF] absolute md:top-14 md:right-80 z-9'/>
-                    <div className=' md:blur-xl blur-3xl w-44 h-44  bottom-0 right-0 md:w-40 md:h-40 rounded-full bg-gradient-to-t from-[#8400FF] via-[#03007E] to-[#0039CC] absolute md:bottom-10 md:right-20 z-9'/>
-                </div>
+                    <div className='w-full h-full bg-black relative top-0 left-0 z-8 rounded-lg'>
+                        <div className='blur-xl  md:w-20 md:h-20 rounded-full bg-gradient-to-r from-[#bcff2430] via-[#57FF3B] to-[#2BF719] absolute md:bottom-20 md:left-44 z-9' />
+                        <div className='md:blur-xl blur-3xl w-52 h-52  top-0 left-0 md:w-32 md:h-32 rounded-full bg-gradient-to-l from-[#8400FF] via-[#A9FB22] to-[#E2EAFF] absolute md:top-10 md:left-72 z-9' />
+                        <div className='blur-xl md:w-20 md:h-20 rounded-full bg-gradient-to-t from-[#FFF5F5] via-[#DA755F] to-[#D6E1FF] absolute md:top-14 md:right-80 z-9' />
+                        <div className=' md:blur-xl blur-3xl w-44 h-44  bottom-0 right-0 md:w-40 md:h-40 rounded-full bg-gradient-to-t from-[#8400FF] via-[#03007E] to-[#0039CC] absolute md:bottom-10 md:right-20 z-9' />
+                    </div>
                 </div>
                 <div className='w-full h-full rounded-lg  gap-3 flex flex-col items-center absolute top-0 left-0 z-10    pt-14 '>
                     <p className='bg-gradient-to-r from-[#FFFFFC] to-[#9EA5FF] text-transparent bg-clip-text text-[35px] md:text-[40px] font-DMSans font-bold text-center'>
@@ -135,9 +149,20 @@ const Hero = () => {
                 <div className='text-black text-base font-DMSans font-medium mt-2 w-full md:w-1/2'>Unleash your creativity like never before as our intuitive interface empowers you to effortlessly customize every aspect</div>
                 <div className='flex flex-wrap w-full h-full justify-between gap-6 py-5 md:px-10 items-center'>
                     {
-                        template.map((data, i) => {
+                        templates.map((data, i) => {
                             return (
                                 <TemplateCard key={i} url={data.url} n={i + 1} />
+
+                            )
+                        })
+                    }
+
+                </div>
+                <div className='flex flex-wrap w-full h-full justify-between gap-6 py-5 md:px-10 items-center'>
+                    {
+                        template.map((data, i) => {
+                            return (
+                                <TemplateCard key={i} url={data.preview} n={i + 1} />
 
                             )
                         })
