@@ -58,7 +58,7 @@ const SideForm = ({ show, setShow }) => {
                 </div>
             }
 
-            <div className='w-6 h-full bg-primary border border-l border-bground flex items-center hover:brightness-105 cursor-pointer'
+            <div className='w-6 h-full bg-primary border border-l border-bground flex items-center hover:brightness-150 cursor-pointer'
                 onClick={() => setShow(!show)}>
                 <IoIosArrowBack className='text-base text-white ' />
             </div>

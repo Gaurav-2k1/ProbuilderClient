@@ -86,11 +86,9 @@ const AuthNav = () => {
                         <BsRocketTakeoffFill size={20} className='text-white' />
                         <p className='text-lg font-MuseoModerno'>Publish</p>
                     </div>
-                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-md relative group'>
+                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-md relative '>
                         <IoDownloadOutline size={20} className='text-white' />
-                        <div className='hidden group-hover:block delay-110 transition-all ease-linear'>
-                            <TemplateDrawer />
-                        </div>
+                       
                     </div>
                     <>{token !== null && <ProfileDropdown />}
                         <button className="mr-4 md:hidden" onClick={() => {

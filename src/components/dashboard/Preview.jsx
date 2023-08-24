@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 const Preview = ({ show, setShow }) => {
     const { view } = useSelector((state) => state.page)
     const { template } = useSelector((state) => state.template)
     return (
         <div className={`h-full no-scrollbar  bg-bground pt-10 
-        justify-start  flex w-full ${show ? "md:pr-10" : "md:pr-10"}  relative `}>
+        justify-start  flex  flex-row w-full ${show ? "md:pr-10" : "md:pr-10"}  relative `}>
             {
                 view === "w-screen" ?
                     <Link target="_blank" rel="noopener noreferrer" className='absolute top-2 text-center w-11/12 left-10 font-roboto-flex cursor-pointer hover:underline' to={template}>Click here to open desktop view in new tab</Link>
@@ -19,6 +20,7 @@ const Preview = ({ show, setShow }) => {
                     title="Web Browser" />
                 {/* <Tempfirst /> */}
             </div>
+           
         </div>
     )
 }
