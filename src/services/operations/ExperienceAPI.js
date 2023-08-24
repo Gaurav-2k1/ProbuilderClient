@@ -29,7 +29,6 @@ export const addExperience = async (token, data) => {
 }
 
 export const getAllExperience = async (token) => {
-    const toastId = toast.loading("Loading...")
     let result = []
     try {
         const response = await apiConnector("GET", GET_EXPERIENCE_API, null, {
@@ -44,7 +43,6 @@ export const getAllExperience = async (token) => {
         console.log("GET_ALL_Experience_API API ERROR............", error)
         toast.error(error.message)
     }
-    toast.dismiss(toastId)
     return result
 }
 

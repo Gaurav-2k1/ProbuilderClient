@@ -29,7 +29,6 @@ export const addEducation = async (token, data) => {
 }
 
 export const getAllEducation = async (token) => {
-    const toastId = toast.loading("Loading...")
     let result = []
     try {
         const response = await apiConnector("GET", GET_EDUCATION_API, null, {
@@ -44,7 +43,6 @@ export const getAllEducation = async (token) => {
         console.log("GET_ALL_Education_API API ERROR............", error)
         toast.error(error.message)
     }
-    toast.dismiss(toastId)
     return result
 }
 

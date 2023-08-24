@@ -8,6 +8,8 @@ import { RxCross2 } from 'react-icons/rx'
 
 const Template = () => {
     const [template, setTemplate] = useState([])
+    const [inputtag, setInputtag] = useState("")
+    const [tag, settag] = useState([])
 
     const getTemplateData = async () => {
         try {
@@ -16,6 +18,19 @@ const Template = () => {
         } catch (err) {
             console.log(err)
         }
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        if (inputtag.trim() !== '') {
+            settag([...tag, inputtag]);
+            setInputtag('');
+        }
+
+    };
+    const removeitem = (data) => {
+        const updatedItems = tag.filter((item) => item !== data);
+
+        settag(updatedItems)
     }
     useEffect(() => {
         getTemplateData()
@@ -31,43 +46,57 @@ const Template = () => {
                         <div className=' md:blur-xl blur-3xl w-44 h-44  bottom-0 right-0 md:w-40 md:h-40 rounded-full bg-gradient-to-t from-[#8400FF] via-[#03007E] to-[#0039CC] absolute md:bottom-10 md:right-20 z-9' />
                     </div>
                 </div>
-                <div className='w-full h-full rounded-lg  gap-3 flex flex-col items-center  absolute top-0 left-0 z-10    pt-14 '>
-                    <p className='bg-gradient-to-r from-[#FFFFFC] to-[#9EA5FF] text-transparent bg-clip-text text-[35px] md:text-[40px] font-DMSans font-bold text-center md:w-3/5'>
+                <div className='w-full h-full rounded-lg  gap-3 flex flex-col items-center md:justify-evenly  absolute top-0 left-0 z-10    pt-14 '>
+                    <p className='bg-gradient-to-r from-[#FFFFFC] to-[#9EA5FF] text-transparent bg-clip-text 
+                    text-[30px] md:text-[40px] font-DMSans font-bold text-center md:w-3/5'>
                         "Discover Your Professional Edge with our Captivating Templates
                     </p>
-                    <p className='text-lg  w-4/5 md:w-2/5 text-center font-DMSans mt-5 text-[#838894]'>Unlock Your Portfolio's Full Potential with our Diverse and Exquisite Template Collection. From Sleek and Modern Designs to Timeless and Classic Styles, Discover the Perfect Showcase for Your Unique Talents and Professional Journey</p>
+                    <p className=' text-sm md:text-lg  w-4/5 md:w-2/5 text-center font-DMSans mt-5 text-[#838894]'>Unlock Your Portfolio's Full Potential with our Diverse and Exquisite Template Collection. From Sleek and Modern Designs to Timeless and Classic Styles, Discover the Perfect Showcase for Your Unique Talents and Professional Journey</p>
 
-                    <div className='w-min bg-transparent px-10 text-mid py-2 border border-solid border-icob rounded-3xl font-DMSans'>
+                    <div className='w-min bg-transparent px-10 text-mid py-2 border border-solid border-icob rounded-3xl font-DMSans cursor-pointer hover:scale-105 delay-105 transition-all ease-in'>
                         Explore
                     </div>
 
                 </div>
             </div>
-            <div className='my-4 w-full relative flex items-center'>
-                <BsSearch className='text-icob font-bold text-lg absolute left-4 top-[35%]' />
+            <form className='my-4 w-full relative flex items-center  flex-col md:flex-row' onSubmit={handleSubmit}>
+                <BsSearch className='text-icob font-bold text-lg absolute left-4 top-[12%] md:top-[35%]' />
 
                 <input placeholder='Search templates by profession or style.......'
-                    className='py-4 pl-14 placeholder:text-[#00000080] placeholder:text-lg placeholder:font-DMSans
+                    className='py-4 pl-10 md:pl-14 placeholder:text-[#00000080] md:placeholder:text-lg placeholder:text-sm placeholder:font-DMSans
                      bg-white text-black w-full focus:outline-none  
                     border border-solid border-[#00000021] placeholder:font-bold border-opacity-90
-                    rounded-lg' />
-                <div className='absolute right-2 flex flex-row gap-2'>
+                    rounded-lg font-DMSans'
+                    type='text'
+                    value={inputtag}
+                    onChange={(event) => setInputtag(event.target.value)}
+
+                />
+
+                <div className='md:absolute right-2 flex md:flex-row flex-wrap gap-2 my-3 justify-center'>
+                    {
+                        tag.map((data, i) => {
+                            return (
+                                <SearchTag key={i} data={data} removeitem={removeitem} />
+
+                            )
+                        })
+                    }
+                    {/* <SearchTag />
                     <SearchTag />
-                    <SearchTag />
-                    <SearchTag />
-                    <SearchTag />
+                    <SearchTag /> */}
                 </div>
-            </div>
+            </form>
             <div className='flex flex-col '>
                 <div className='flex flex-row text-lg font-DMSans text-black items-center gap-3'><FiFilter className='t' /> Preferences</div>
-                <div className='flex flex-row w-full h-full gap-3'>
-                    <div className='w-1/5 flex h-full flex-col mt-5 py-3 gap-4 border border-solid border-[#00000021] rounded-lg px-4'>
+                <div className='flex flex-col md:flex-row w-full h-full gap-3'>
+                    <div className='md:w-1/5 w-full flex h-full flex-col mt-5 py-3 gap-4 border border-solid border-[#00000021] rounded-lg px-4'>
                         <Tags />
                         <Tags />
                         <Tags />
                         <Tags />
                     </div>
-                    <div className='w-4/5 flex h-full flex-wrap mt-5 py-3 justify-around gap-4 border border-solid border-[#00000021] rounded-lg px-4'>
+                    <div className='w-full md:w-4/5 flex h-full flex-wrap mt-5 py-3 justify-around gap-4 border border-solid border-[#00000021] rounded-lg px-4'>
                         {
                             template.map((data, i) => {
                                 return (
@@ -83,10 +112,12 @@ const Template = () => {
     )
 }
 
-const SearchTag = () => {
-    return (<div className='flex flex-row px-4 py-2 items-center gap-2 hover:bg-[#0C268C] cursor-pointer bg-icob rounded-2xl'>
-        <p className='text-white font-DMSans text-mid '>enginner</p>
-        <RxCross2 className='text-mid  text-white hover:text-black' />
+const SearchTag = ({ data, removeitem }) => {
+    return (<div className='flex flex-row md:px-4 md:py-2 px-2 py-1 items-center gap-2 hover:bg-[#0C268C] cursor-pointer bg-icob rounded-2xl'>
+        <p className='text-white font-DMSans md:text-mid text-sm'>{data}</p>
+        <RxCross2 className='text-mid  text-white hover:text-black' onClick={() => {
+            removeitem(data)
+        }} />
     </div>)
 }
 
@@ -94,7 +125,7 @@ const Tags = () => {
     return (
         <div class="flex items-center ">
             <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label for="default-checkbox" class="ml-2 text-lg font-medium font-DMSans text-gray-900 dark:text-gray-300">Software Engineering</label>
+            <label for="default-checkbox" className="ml-2 text-lg font-medium font-DMSans text-gray-900 dark:text-gray-300">Software Engineering</label>
         </div>
     )
 }

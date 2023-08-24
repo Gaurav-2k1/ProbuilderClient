@@ -79,7 +79,7 @@ function LoginForm() {
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-icob py-[8px] px-[12px] font-medium text-white font-mono"
+        className="mt-6 rounded-[3px] bg-icob py-[12px] px-[12px] font-medium text-white font-DMSans"
       >
         Login
       </button>

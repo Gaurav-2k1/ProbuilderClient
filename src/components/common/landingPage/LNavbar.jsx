@@ -21,26 +21,26 @@ const LNavbar = () => {
     }
     return (
         <div className='flex  flex-row h-16  w-screen  items-center justify-between bg-[#fff] px-5 
-        z-50 border-b border-[#5E5E5E] border-opacity-80 border-solid relative'>
-            <div className='text-3xl font-MuseoModerno navhead font-bold cursor-pointer 
+        z-50 navsha  relative'>
+            <div className='text-[23px] font-MuseoModerno navhead font-semibold cursor-pointer md:pl-10
         '>
                 <Link to="/">Probuilder</Link>
             </div>
             <div className='flex justify-around flex-row h-full  items-center bg-[#fff]'>
                 <nav className="hidden md:block h-full  items-center">
-                    <ul className="flex gap-x-6 h-full  items-center">{NavbarLinks.map((link, index) => (
+                    <ul className="flex gap-x-10 h-full  items-center">{NavbarLinks.map((link, index) => (
                         <li key={index} >
 
                             <Link to={link?.path} className='relative'>
                                 <p
-                                    className={`font-DMSans  text-lg  ${matchRoute(link?.path)
+                                    className={`font-DMSans  text-[16px]  ${matchRoute(link?.path)
                                         ? "text-icob font-bold"
                                         : "text-[#5E5E5E] font-normal"
                                         }`}
                                 >
                                     {link.title}
                                 </p>
-                                <div className={`hidden md:block absolute top-[37px] rounded-tl-lg rounded-br-lg left-0 w-full h-2 ${matchRoute(link?.path)
+                                <div className={`hidden md:block absolute top-[39px] rounded-tl-lg  rounded-br-lg -left-3 w-[calc(100%+1.5rem)]    h-[5px] ${matchRoute(link?.path)
                                     ? "bg-icob"
                                     : ""
                                     } delay-110 ease-in transition-all`} ></div>
@@ -57,12 +57,16 @@ const LNavbar = () => {
             </div>
             <div className='md:flex hidden'>
                 {token !== null ? <ProfileDropdown /> :
-                    <div className='hidden md:flex flex-row gap-3 items-center '>
-                        <div className='rounded-md flex flex-row px-4 py-1 items-center bg-white gap-2 cursor-pointer border border-gray-400 border-solid border-opacity-80 '>
-                            <Link to="/login" className='text-lg text-black font-DMSans'>Login</Link>
+                    <div className='hidden md:flex flex-row gap-3 items-center pr-10'>
+                        <div className={`rounded-[5px] flex flex-row px-4 py-1 items-center bg-white 
+                        gap-2 cursor-pointer ${matchRoute("/login")
+                                ? "border-opacity-20 "
+                                : "border-opacity-80 "
+                            } border border-gray-400 border-solid hover:brightness-95 delay-150 ease-in transition-all`}>
+                            <Link to="/login" className='text-[16px] text-black font-DMSans'>Login</Link>
                         </div>
-                        <div className='rounded-md flex flex-row px-4 py-1 items-center bg-icob gap-2 cursor-pointer'>
-                            <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
+                        <div className='rounded-[5px] flex flex-row px-4 py-1 items-center bg-icob gap-2 cursor-pointer hover:brightness-120 delay-110 ease-in transition-all'>
+                            <Link to="/signup" className='text-[16px] text-white font-DMSans'>Signup</Link>
 
                         </div>
                     </div>}
@@ -92,18 +96,18 @@ const LNavbar = () => {
                     <div className='flex md:hidden flex-col gap-3 items-center '>
 
 
-                        <div className='rounded-md flex flex-row
+                        <div className='rounded-[5px] flex flex-row
                 px-4 py-1 items-center bg-white gap-2 cursor-pointer
                 border border-gray-400 border-solid border-opacity-80 ' onClick={() => {
                                 setshow(false)
                             }}>
-                            <Link to="/login" className='text-lg text-black font-DMSans' >Login</Link>
+                            <Link to="/login" className='text-[16px] text-black font-DMSans' >Login</Link>
                         </div>
-                        <div className='rounded-md flex flex-row
+                        <div className='rounded-[5px] flex flex-row
                 px-4 py-1 items-center bg-icob gap-2 cursor-pointer' onClick={() => {
                                 setshow(false)
                             }}>
-                            <Link to="/signup" className='text-lg  text-white font-DMSans'>Signup</Link>
+                            <Link to="/signup" className='text-[16px]  text-white font-DMSans'>Signup</Link>
 
                         </div>
                     </div>

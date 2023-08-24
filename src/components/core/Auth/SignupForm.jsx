@@ -74,10 +74,10 @@ function SignupForm() {
       {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
-        <div className="flex justify-between w-full">
-          <label>
+        <div className="flex gap-3 w-full">
+          <label className="w-full">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
-              First Name <sup className="text-white">*</sup>
+              First Name <sup className="mandat">*</sup>
             </p>
             <input
               required
@@ -86,12 +86,12 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full"
+              className="form-style w-full md:pr-14"
             />
           </label>
-          <label>
+          <label className="w-full">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
-              Last Name <sup className="text-pink-200">*</sup>
+              Last Name <sup className="mandat">*</sup>
             </p>
             <input
               required
@@ -100,13 +100,13 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full"
+              className="form-style w-full md:pr-10"
             />
           </label>
         </div>
         <label className="w-full">
           <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
-            Email Address <sup className="text-pink-200">*</sup>
+            Email Address <sup className="mandat">*</sup>
           </p>
           <input
             required
@@ -119,30 +119,34 @@ function SignupForm() {
           />
         </label>
         <div className="flex flex-col gap-2">
-          <label htmlFor="phonenumber" className="form-label text-placeholder">
+          <label htmlFor="phonenumber" className="form-label mb-1 text-[0.875rem] leading-[1.375rem]">
             Phone Number
+            <sup className="mandat">*</sup>
           </label>
 
-          <div className="flex gap-5">
-            <div className="flex w-[70px] flex-col gap-2">
+          <div className="flex gap-3">
+            <div className="flex w-[80px] flex-col gap-1 ">
               <select
                 type="text"
-                name="firstname"
-                id="firstname"
-                placeholder="Enter first name"
-                className="rounded-lg border border-[#00000033] border-solid
-                 bg-white text-black p-3 text-[16px] leading-[24px] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-placeholder placeholder:font-DMSans focus:outline-none font-DMSans"
+                name="phone"
+                id="phone"
+                placeholder="Enter phone"
+                className="rounded-[3px] border border-[#00000033] border-solid
+                 bg-transparent 
+                 text-black p-3 text-[16px] leading-[24px] 
+                 shadow-[0_1px_0_0] shadow-white/50
+                 placeholder:text-placeholder placeholder:font-DMSans focus:outline-none font-DMSans"
               >
                 {CountryCode.map((ele, i) => {
                   return (
                     <option className="text-black" key={i} value={ele.code}>
-                      {ele.code} -{ele.country}
+                      {ele.code}
                     </option>
                   )
                 })}
               </select>
             </div>
-            <div className="flex w-[calc(100%-90px)] flex-col gap-2">
+            <div className="flex w-[calc(100%-90px)] flex-col gap-1">
               <input
                 type="text"
                 name="contactNumber"
@@ -156,10 +160,10 @@ function SignupForm() {
 
 
         </div>
-        <div className="flex gap-x-4">
-          <label className="relative">
+        <div className="flex gap-x-3">
+          <label className="relative w-full">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
-              Create Password <sup className="text-pink-200">*</sup>
+              Create Password <sup className="mandat">*</sup>
             </p>
             <input
               required
@@ -175,15 +179,15 @@ function SignupForm() {
               className="absolute right-3 top-[38px] z-[10] cursor-pointer"
             >
               {showPassword ? (
-                <AiOutlineEyeInvisible fontSize={24} fill="#fff" />
+                <AiOutlineEyeInvisible fontSize={24} fill="#C3D5FF" />
               ) : (
-                <AiOutlineEye fontSize={24} fill="#fff" />
+                <AiOutlineEye fontSize={24} fill="#C3D5FF" />
               )}
             </span>
           </label>
-          <label className="relative">
+          <label className="relative w-full">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] form-label">
-              Confirm Password <sup className="text-pink-200">*</sup>
+              Confirm Password <sup className="mandat">*</sup>
             </p>
             <input
               required
@@ -199,16 +203,16 @@ function SignupForm() {
               className="absolute right-3 top-[38px] z-[10] cursor-pointer"
             >
               {showConfirmPassword ? (
-                <AiOutlineEyeInvisible fontSize={24} fill="#ffff" />
+                <AiOutlineEyeInvisible fontSize={24} fill="#C3D5FF" />
               ) : (
-                <AiOutlineEye fontSize={24} fill="#fff" />
+                <AiOutlineEye fontSize={24} fill="#C3D5FF" />
               )}
             </span>
           </label>
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-icob py-[8px] px-[12px] font-medium text-white"
+          className="mt-6 rounded-[2px] bg-icob py-[12px] px-[12px] font-medium text-white font-DMSans hover:scale-105 delay-110 transition-all ease-in"
         >
           Create Account
         </button>

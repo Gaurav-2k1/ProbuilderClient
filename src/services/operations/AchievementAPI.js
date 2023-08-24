@@ -29,7 +29,6 @@ export const addAchievement = async (token, data) => {
 }
 
 export const getAllAchievement = async (token) => {
-    const toastId = toast.loading("Loading...")
     let result = []
     try {
         const response = await apiConnector("GET", GET_ACHIEVEMENT_API, null, {
@@ -44,7 +43,6 @@ export const getAllAchievement = async (token) => {
         console.log("GET_ALL_Projects_API API ERROR............", error)
         toast.error(error.message)
     }
-    toast.dismiss(toastId)
     return result
 }
 

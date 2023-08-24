@@ -23,7 +23,7 @@ const Navbar = () => {
                     location.pathname === "/signup" ||
                     location.pathname === "/verify-email" ||
                     location.pathname === "/forgot-password" ||
-                    location.pathname === "/update-password/:id" 
+                    location.pathname === "/update-password/" 
                     ?
                     <>  {
                         <LNavbar />

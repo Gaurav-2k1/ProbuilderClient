@@ -35,20 +35,20 @@ function UpdatePassword() {
   }
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+    <div className="grid min-h-[calc(100vh-3.5rem)] md:h-screen place-items-center bg-white">
       {loading ? (
         <div className="spinner"></div>
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
-          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
+          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-black font-DMSans">
             Choose new password
           </h1>
-          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
+          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-black font-DMSans">
             Almost done. Enter your new password and youre all set.
           </p>
           <form onSubmit={handleOnSubmit}>
             <label className="relative">
-              <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+              <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-DMSans">
                 New Password <sup className="text-pink-200">*</sup>
               </p>
               <input
@@ -65,14 +65,14 @@ function UpdatePassword() {
                 className="absolute right-3 top-[38px] z-[10] cursor-pointer"
               >
                 {showPassword ? (
-                  <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  <AiOutlineEyeInvisible fontSize={24} fill="#C3D5FF" />
                 ) : (
-                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  <AiOutlineEye fontSize={24} fill="#C3D5FF" />
                 )}
               </span>
             </label>
             <label className="relative mt-3 block">
-              <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+              <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-DMSans">
                 Confirm New Password <sup className="text-pink-200">*</sup>
               </p>
               <input
@@ -89,23 +89,23 @@ function UpdatePassword() {
                 className="absolute right-3 top-[38px] z-[10] cursor-pointer"
               >
                 {showConfirmPassword ? (
-                  <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  <AiOutlineEyeInvisible fontSize={24} fill="#C3D5FF" />
                 ) : (
-                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  <AiOutlineEye fontSize={24} fill="#C3D5FF" />
                 )}
               </span>
             </label>
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-[8px] bg-yellow-50 py-[12px] px-[12px] font-medium text-richblack-900"
+              className="mt-6 w-full rounded-[3px] bg-icob py-[12px] px-[12px] font-medium text-white font-DMSans"
             >
               Reset Password
             </button>
           </form>
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 flex items-center justify-between font-DMSans">
             <Link to="/login">
-              <p className="flex items-center gap-x-2 text-richblack-5">
+              <p className="flex items-center gap-x-2 text-red-600 font-DMSans">
                 <BiArrowBack /> Back To Login
               </p>
             </Link>

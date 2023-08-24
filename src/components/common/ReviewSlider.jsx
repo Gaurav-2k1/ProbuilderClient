@@ -27,7 +27,7 @@ const templates = [
     url: img
   }
 ]
-function TemplateSlider() {
+function TemplateSlider({template}) {
   // const [reviews, setReviews] = useState([])
   // const truncateWords = 15
 
@@ -46,8 +46,8 @@ function TemplateSlider() {
   // console.log(reviews)
 
   return (
-    <div className="my-6">
-      <div className="h-full w-screen">
+    <div className="my-6 w-full">
+      <div className="h-full w-11/12 mx-10">
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -74,10 +74,10 @@ function TemplateSlider() {
 
         >
           {
-            templates.map((data, i) => {
+            template.map((data, i) => {
               return (
                 <SwiperSlide key={i} className="">
-                  <img src={data.url} alt="" className="w-min h-min object-contain " />
+                  <img src={data.preview} alt="" className="w-min h-min object-contain " />
                 </SwiperSlide>
               )
             })

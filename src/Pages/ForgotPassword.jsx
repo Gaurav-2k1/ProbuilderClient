@@ -25,7 +25,7 @@ function ForgotPassword() {
           <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-black font-inter">
             {!emailSent ? "Reset your password" : "Check email"}
           </h1>
-          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-black">
+          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-black font-DMSans">
             {!emailSent
               ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
               : `We have sent the reset email to ${email}`}
@@ -49,12 +49,12 @@ function ForgotPassword() {
             )}
             <button
               type="submit"
-              className="mt-6 w-full rounded-[8px] bg-icob  py-[12px] px-[12px] font-medium text-white font-DMSans"
+              className="mt-6 w-full rounded-[3px] bg-icob  py-[12px] px-[12px] font-medium text-white font-DMSans"
             >
               {!emailSent ? "Send Verification link" : "Resend Email"}
             </button>
           </form>
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 flex items-center justify-between font-DMSans">
             <Link to="/login">
               <p className="flex items-center gap-x-2 text-red-600 font-DMSans">
                 <BiArrowBack /> Remembered? Go Back to Login page
