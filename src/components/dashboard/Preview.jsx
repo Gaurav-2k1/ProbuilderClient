@@ -13,14 +13,17 @@ const Preview = ({ show, setShow }) => {
                     <Link target="_blank" rel="noopener noreferrer" className='absolute top-2 text-center w-11/12 left-10 font-roboto-flex cursor-pointer hover:underline' to={template}>Click here to open desktop view in new tab</Link>
                     : <></>
             }
-            <div className={`${view === "w-screen" ? "" : "flex"} no-scrollbar  rounded-lg   items-center justify-center h-full ${show ? "w-4/5" : "w-full"}   pl-5  overflow-y-auto `}>
+            <div className={`${view === "w-screen" ? "" : "flex"} no-scrollbar  rounded-lg   items-center justify-center h-full ${show ? "w-4/5" : "w-full"}  
+             pl-5  overflow-y-auto scale-95`}>
                 <iframe
-                    className={`${view} no-scrollbar overflow-y-scroll h-full  rounded-lg `}
+
+                    className={`${view} no-scrollbar overflow-y-scroll h-full  rounded-lg
+                    `}
                     src={template}
                     title="Web Browser" />
                 {/* <Tempfirst /> */}
             </div>
-           
+
         </div>
     )
 }

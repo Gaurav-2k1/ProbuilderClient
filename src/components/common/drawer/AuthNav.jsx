@@ -26,7 +26,7 @@ const AuthNav = () => {
     return (
         <div className='flex  flex-row h-16 py-4 w-screen  items-center justify-between bg-[#222222] px-5 
         z-50'>
-            <div className='text-3xl font-MuseoModerno authnavhead font-bold cursor-pointer 
+            <div className='text-[23px] font-MuseoModerno authnavhead font-bold cursor-pointer 
             '>
                 <Link to="/">Probuilder</Link>
             </div>
