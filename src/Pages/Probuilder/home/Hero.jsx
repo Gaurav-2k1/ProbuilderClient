@@ -129,7 +129,7 @@ const Hero = () => {
             </div>
             <div className='w-full h-full py-10'>
                 <div className='w-full  min-h-[70vh] bg-[#252525] md:flex-row flex-col flex  items-center rounded-lg py-4'>
-                    <div className='flex flex-col w-full md:w-1/2 md:ml-44 gap-5'>
+                    <div className='flex flex-col w-full md:w-1/2 ml-10 md:ml-44 gap-5'>
                         <p className=' font-bold font-DMSans text-white text-[40px] w-full md:w-[80%] leading-[44px]'>Impress Recruiters with Your Professional Excellence
                         </p>
 

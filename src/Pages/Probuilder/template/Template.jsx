@@ -59,19 +59,22 @@ const Template = () => {
 
                 </div>
             </div>
-            <form className='my-4 w-full relative flex items-center  flex-col md:flex-row' onSubmit={handleSubmit}>
-                <BsSearch className='text-icob font-bold text-lg absolute left-4 top-[12%] md:top-[35%]' />
+            <div className='my-4 w-full  flex items-center  flex-col md:flex-row' >
+                <form className='relative border border-solid border-[#00000021] w-full rounded-[3px]' onSubmit={handleSubmit}>
+                    <BsSearch className='text-icob font-bold text-lg absolute left-4 top-[35%] md:top-[35%]' />
 
-                <input placeholder='Search templates by profession or style.......'
-                    className='py-4 pl-10 md:pl-14 placeholder:text-[#00000080] md:placeholder:text-lg placeholder:text-sm placeholder:font-DMSans
-                     bg-white text-black w-full focus:outline-none  
-                    border border-solid border-[#00000021] placeholder:font-bold border-opacity-90
-                    rounded-lg font-DMSans'
-                    type='text'
-                    value={inputtag}
-                    onChange={(event) => setInputtag(event.target.value)}
+                    <input placeholder='Search templates by profession or style.......'
+                        className='py-4 pl-10 md:pl-14 placeholder:text-[#00000080] md:placeholder:text-lg placeholder:text-sm placeholder:font-DMSans
+     bg-white text-black w-full focus:outline-none  
+    placeholder:font-bold border-opacity-90
+    font-DMSans'
+                        type='text'
+                        value={inputtag}
+                        onChange={(event) => setInputtag(event.target.value)}
 
-                />
+                    />
+                </form>
+
 
                 <div className='md:absolute right-2 flex md:flex-row flex-wrap gap-2 my-3 justify-center'>
                     {
@@ -86,7 +89,7 @@ const Template = () => {
                     <SearchTag />
                     <SearchTag /> */}
                 </div>
-            </form>
+            </div>
             <div className='flex flex-col '>
                 <div className='flex flex-row text-lg font-DMSans text-black items-center gap-3'><FiFilter className='t' /> Preferences</div>
                 <div className='flex flex-col md:flex-row w-full h-full gap-3'>

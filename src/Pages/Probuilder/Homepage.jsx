@@ -18,6 +18,7 @@ import Contact from '../Contact'
 import TempSecond from '../Temptwo/TempSecond'
 import Tempthree from '../Tempthree/Tempthree'
 import Template from './template/Template'
+import Footer from '../../components/common/Footer'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -30,6 +31,8 @@ const Homepage = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+
     return (
         <div>
             <Navbar />
@@ -92,8 +95,9 @@ const Homepage = () => {
                 <Route path='/template/tempone' element={<Tempfirst />} />
                 <Route path='/template/temptwo' element={<TempSecond />} />
                 <Route path='/template/tempthree' element={<Tempthree />} />
-
             </Routes>
+            <Footer />
+
         </div>
     )
 }
