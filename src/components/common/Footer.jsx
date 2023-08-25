@@ -28,7 +28,7 @@ const Footer = () => {
                                 <p className='text-[24px] font-bold leading-[36px] font-DMSans mt-5'>
                                     Let's talk! 🤙
                                 </p>
-                                <div className='mt-6'>
+                                <div className='md:mt-14 mt-6 gap-2 flex flex-col '>
                                     <p className='text-[18px] font-medium leading-[28px] font-DMSans'>02025585859</p>
                                     <p className='text-[18px] font-medium leading-[28px] font-DMSans'>contact@prob.com</p>
                                     <p className='text-[18px] font-medium leading-[28px] font-DMSans'>Cybercity Pune  77 India MH</p>
@@ -36,18 +36,18 @@ const Footer = () => {
                                 </div>
 
                             </div>
-                            <div className='flex md:flex-row flex-wrap pl-10 md:pl-0 mt-10 md:mt-0 gap-4 md:ml-10'>
+                            <div className='flex md:flex-row flex-wrap pl-10 md:pl-0 mt-10 md:mt-0 gap-6 md:gap-12 md:ml-10'>
                                 <div className='flex flex-col gap-3'>
                                     {links.map((data, i) => {
                                         return (
-                                            <p className='text-[16px] font-semibold leading-[28px] font-DMSans'>{data}</p>)
+                                            <p key={i} className='cursor-pointer text-[16px] font-semibold leading-[28px] font-DMSans'>{data}</p>)
                                     })}
                                 </div>
                                 <div className='flex flex-col gap-3'>
                                     <p className='text-[16px] font-semibold leading-[28px] font-DMSans'>Templates</p>
                                     {templates.map((data, i) => {
                                         return (
-                                            <p className='text-[14px] font-medium leading-[20px] font-DMSans'>{data}</p>)
+                                            <p key={i} className='cursor-pointer text-[14px] font-medium leading-[20px] font-DMSans'>{data}</p>)
                                     })}
                                 </div>
                                 <div className='flex flex-col gap-3'>
@@ -55,7 +55,7 @@ const Footer = () => {
 
                                     {legal.map((data, i) => {
                                         return (
-                                            <p className='text-[14px] font-medium leading-[20px] font-DMSans'>{data}</p>)
+                                            <p key={i} className='cursor-pointer text-[14px] font-medium leading-[20px] font-DMSans'>{data}</p>)
                                     })}
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import hero from "../../../assets/Images/heroimg.png"
 import herosec from "../../../assets/Images/herosec.png"
@@ -60,6 +60,8 @@ const Hero = () => {
             console.log(err)
         }
     }
+
+    const ac = useRef(1)
     useEffect(() => {
         getTemplateData()
     }, [])
@@ -191,9 +193,9 @@ const Hero = () => {
                     <div className='flex flex-col md:flex-row w-full h-full mt-10'>
                         <div className='flex flex-col w-full md:w-1/2 md:px-10 py-5 md:h-[50vh] no-scrollbar overflow-y-scroll gap-4
                         md:pl-24'>
-                            <SeeMore title="Data-Driven Future Prediction" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
-                            <SeeMore title="Seamless Mobile Responsivenes" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
-                            <SeeMore title="Dedicated Customer Support and Community" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
+                            <SeeMore ac={ac.current} i={1} title="Data-Driven Future Prediction" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
+                            <SeeMore ac={ac.current} i={2} title="Seamless Mobile Responsivenes" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
+                            <SeeMore ac={ac.current} i={3} title="Dedicated Customer Support and Community" detail="We go beyond just offering portfolio templates. Our innovative platform incorporates cutting-edge data analysis and predictive insights. Leveraging user behavior and social media trends, we equip our users with a strategic advantage, empowering them to make informed decisions about their online presence and stay ahead of the competition. This data-driven approach sets us apart as a trailblazer in the industry." />
                         </div>
 
                         <div className='flex flex-row gap-2 md:gap-0 w-full md:w-2/5 max-h-3/4'>
@@ -221,7 +223,9 @@ const Hero = () => {
                         <Opdata i={2} colo="text-[#5E5E5E]" title="Career Advancement Opportunities" desc="A well-maintained portfolio can be a powerful tool for engineers to advance their careers. It enables them to present a comprehensive snapshot of their professional journey, demonstrating growth, adaptability, and the ability to take on increasingly complex challenges." />
                         <Opdata i={3} colo="text-[#3A870A]" title="Enhanced Job Prospects" desc="For engineers working independently or in consulting roles, portfolios act as a showcase of their previous projects and expertise. This instills confidence in potential clients and establishes trust, leading to increased project opportunities and potential collaborations. A strong portfolio can also attract higher-value projects and partnerships, contributing to a more successful and fulfilling career trajectory." />
                     </div>
-                    <div className='bg-bground px-5 py-2 text-lg font-DMSans w-max rounded-3xl cursor-pointer'>Create Now</div>
+                    <div className='bg-bground hover:scale-105 delay-110 ease-in transition-all px-5 py-2 text-base  font-medium leading-[24px] font-DMSans w-max rounded-3xl cursor-pointer' onClick={(()=>{
+                        navigate("/template")
+                    })}>Create Now</div>
                 </div>
                 <img src={last} alt='' className='w-full h-full md:w-[400px] md:h-[550px] object-contain ' />
 

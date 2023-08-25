@@ -133,7 +133,7 @@ const Home = () => {
                         type="text"
                         name="firstName"
                         id="firstName"
-                        placeholder="Enter first name"
+                        placeholder="First name"
                         className="inpform"
                         {...register("firstName", { required: true })}
                         defaultValue={user?.firstName}

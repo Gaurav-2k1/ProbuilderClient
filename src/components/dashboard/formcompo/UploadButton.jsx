@@ -15,7 +15,7 @@ const UploadButton = (
             disabled={disabled}
             onClick={onclick}
             className=' bg-primary border border-bground border-solid
-                 rounded-md p-3 mx-2' >
+                 rounded-md p-3 ml-2' >
             <CgAttachment size={20}
                 className='text-white  cursor-pointer rotate-45'
             />

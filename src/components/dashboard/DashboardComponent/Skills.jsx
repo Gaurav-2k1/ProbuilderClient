@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { IoAddSharp } from "react-icons/io5"
 import { IoIosArrowDown } from "react-icons/io"
-import { AiFillDelete } from 'react-icons/ai'
+import { MdDelete } from 'react-icons/md'
 import { useDispatch, useSelector } from "react-redux"
 import { addSkill, deleteSkill, getAllSkills } from '../../../services/operations/SkillAPI'
 import { socket } from '../../common/Socket'
@@ -112,7 +112,7 @@ const SkillTile = ({ skill, arr, setarr, type, handleDelete }) => {
             active &&
             <>
                 <div className='flex flex-row h-full w-full gap-1 relative border border-solid border-[#ffffff2b] bg-primary rounded-sm'>
-                    <input name='title' placeholder='Add any skill you have' type='text' className='w-full py-3 rounded-md bg-primary placeholder:text-[#ffffff2b]
+                    <input name='title' placeholder='Add any skill you have' type='text' className='w-full py-3 rounded-lg bg-primary placeholder:text-[#ffffff2b]
          placeholder:font-DMSans placeholder:text-sm pl-1 text-base font-DMSans' value={Skills.title} onChange={handleInputChange}
                     />
                     <div className='absolute right-1 bottom-1 flex-row flex gap-1'>
@@ -151,7 +151,7 @@ const SkillTile = ({ skill, arr, setarr, type, handleDelete }) => {
                                                 className={`absolute h-full  bg-icob py-1 top-0 left-0 ${data.level > "80%" ? "rounded-2xl" : "rounded-l-2xl"}  opacity-60`}></div>
                                         </div>
                                         <div className='absolute right-2 top-0 opacity-0 hidden group-hover:block group-hover:opacity-100 cursor-pointer group-hover:top-2 delay-200 ease-in transition-all'>
-                                            <AiFillDelete className='text-lg text-red-600 hover:text-red-500'
+                                            <MdDelete className='text-lg text-red-600 hover:text-red-500'
                                                 onClick={() => { handleDelete(data._id) }}
                                             />
                                         </div>

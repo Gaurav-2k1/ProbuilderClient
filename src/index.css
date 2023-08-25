@@ -18,6 +18,18 @@ body {
   overflow-x: hidden;
 }
 
+.team{
+  background: linear-gradient(90deg, #2C0EE1 0%, #FB2424 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: Inter;
+font-size: 36px;
+font-style: normal;
+font-weight: 600;
+line-height: 40px;
+letter-spacing: -1.04px;
+}
 .spinner {
   width: 56px;
   height: 56px;

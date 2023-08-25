@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { FaCloud } from 'react-icons/fa'
-import { GrUndo, GrRedo } from 'react-icons/gr'
-import { PiCloudArrowUpThin, PiMagnifyingGlass, PiMonitorLight } from 'react-icons/pi'
-import { BsRocketTakeoffFill } from 'react-icons/bs'
+// import { GrUndo, GrRedo } from 'react-icons/gr'
+import { PiCloudArrowUpThin, PiMonitorLight } from 'react-icons/pi'
+import { PiRocketLaunch } from 'react-icons/pi'
 import { IoDownloadOutline } from 'react-icons/io5'
 import { CiMobile1 } from 'react-icons/ci'
 import { HiOutlineDeviceTablet } from 'react-icons/hi'
-import { IoIosArrowDown } from 'react-icons/io'
+// import { IoIosArrowDown } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setView } from '../../../slices/pageSlice'
@@ -30,18 +30,18 @@ const AuthNav = () => {
             '>
                 <Link to="/">Probuilder</Link>
             </div>
-            <div className='flex flex-row w-3/4 h-min justify-between items-center'>
+            <div className='flex flex-row w-full  md:ml-20 h-min justify-between items-center'>
                 <div className='hidden md:flex flex-row gap-6 '>
-                    <div className='text-lg font-mono '>Home</div>
-                    <Link className='text-lg font-mono ' to="/dashboard/builder">Builder</Link>
+                    <div className='text-[15px] font-MuseoModerno '>Home</div>
+                    <Link className='text-[15px] font-MuseoModerno ' to="/dashboard/builder">Builder</Link>
                     {/* <div >Builder</div> */}
-                    <div className='text-lg font-mono  flex flex-row items-center gap-2'>
+                    <div className='text-[15px] font-MuseoModerno  flex flex-row items-center gap-2'>
                         <FaCloud size={20}
                             className='text-blue-600' /> Saved</div>
                 </div>
                 <div className='hidden md:flex flex-row gap-3 '>
                     <div className={`${preActive === 1 ? "bg-icob" : ""} rounded-md p-1  cursor-pointer`}>
-                        <PiMonitorLight className='text-white text-3xl' onClick={() => {
+                        <PiMonitorLight className='text-white text-2xl' onClick={() => {
                             setPreActive(1)
                             dispatch(setView("w-screen"))
                         }
@@ -49,13 +49,13 @@ const AuthNav = () => {
                         />
                     </div>
                     <div className={`${preActive === 2 ? "bg-icob" : ""} rounded-md p-1 cursor-pointer`}>
-                        <CiMobile1 className='text-white text-3xl' onClick={() => {
+                        <CiMobile1 className='text-white text-2xl' onClick={() => {
                             setPreActive(2)
                             dispatch(setView("w-[400px]"))
                         }} />
                     </div>
                     <div className={`${preActive === 3 ? "bg-icob" : ""} rounded-md p-1 cursor-pointer`}>
-                        <HiOutlineDeviceTablet className='text-white text-3xl' onClick={() => {
+                        <HiOutlineDeviceTablet className='text-white text-2xl' onClick={() => {
                             setPreActive(3)
                             dispatch(setView("w-[767px]"))
                         }} />
@@ -63,7 +63,7 @@ const AuthNav = () => {
 
                 </div>
                 <div className='hidden md:flex flex-row gap-3 items-center mr-10'>
-                    <GrUndo size={20} className='text-white' />
+                    {/* <GrUndo size={20} className='text-white' />
                     <GrRedo size={20} className='text-white' />
                     <div className='flex flex-row bg-[#101010] rounded-md p-1 items-center gap-2 cursor-pointer relative'
                         onClick={() => setmactive(!magniactive)}>
@@ -75,19 +75,19 @@ const AuthNav = () => {
                                 setsize(e.target.value)
                             }} />
                         }
-                    </div>
-                    <div className='rounded-md flex flex-row
+                    </div> */}
+                    <div className='rounded-[5px] flex flex-row
                     px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
-                        <PiCloudArrowUpThin size={20} className='text-white ' />
-                        <p className='text-lg font-MuseoModerno'>Save</p>
+                        <PiCloudArrowUpThin size={15} className='text-white ' />
+                        <p className='text-[15px] font-MuseoModerno'>Save</p>
                     </div>
-                    <div className='rounded-md flex flex-row
+                    <div className='rounded-[5px] flex flex-row
                     px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
-                        <BsRocketTakeoffFill size={20} className='text-white' />
-                        <p className='text-lg font-MuseoModerno'>Publish</p>
+                        <PiRocketLaunch size={15} className='text-white' />
+                        <p className='text-[15px] font-MuseoModerno'>Publish</p>
                     </div>
-                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-md relative '>
-                        <IoDownloadOutline size={20} className='text-white' />
+                    <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-[5px] relative '>
+                        <IoDownloadOutline size={15} className='text-white' />
                        
                     </div>
                     <>{token !== null && <ProfileDropdown />}
