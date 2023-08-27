@@ -193,7 +193,7 @@ const SocialLinkcom = ({ icon, title, sociallinks }) => {
                  border border-solid border-[#ffffff2b]
          placeholder:font-DMSans placeholder:text-sm pl-1
           text-base font-DMSans' value={social.link} onChange={handleInputChange}
-                    defaultValue={sociallinks}
+
                 />
             </div>
             <div ><GiConfirmed className='text-lg text-icob cursor-pointer' onClick={updateSocialLink} /></div>

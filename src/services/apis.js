@@ -12,6 +12,7 @@ export const endpoints = {
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
+  ADD_SOCKET_DETAILS_API: BASE_URL + "/profile/addsocket",
   GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
   GET_INSTRUCTOR_DATA_API: BASE_URL + "/profile/instructorDashboard",
   UPLOAD_RESUME_API: BASE_URL + "/profile/uploadresume",
@@ -77,9 +78,12 @@ export const projectEndpoint = {
 // RATINGS AND REVIEWS
 export const approved = {
   APPROVED_API: BASE_URL + "/profile/getUser",
+  PUBLISHED_API: BASE_URL + "/profile/publishData",
 }
 export const template = {
   TEMPLATE_API: BASE_URL + "/auth/getTemplate",
+  GET_TEMP_API: BASE_URL + "/profile/publishUser",
+
 }
 
 // CATAGORIES API

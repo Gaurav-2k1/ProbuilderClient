@@ -4,7 +4,8 @@ import { apiConnector } from "../apiConnector"
 import { template } from "../apis"
 
 const {
-    TEMPLATE_API
+    TEMPLATE_API,
+    GET_TEMP_API
 } = template
 
 export const getTemplate = async () => {
@@ -27,4 +28,25 @@ export const getTemplate = async () => {
     toast.dismiss(toastId)
     //   dispatch(setLoading(false));
     return result
+}
+
+export const addTempuser = async (token, data) => {
+    const toastId = toast.loading("Loading...")
+    try {
+        const response = await apiConnector("POST", GET_TEMP_API, data, {
+            Authorization: `Bearer ${token}`,
+        })
+        console.log("SKILL API RESPONSE............", response)
+        if (!response?.data?.success) {
+            // toast.error(response.data.error)
+
+            throw new Error(response.data.error)
+        }
+        toast.success("skill Details Added Successfully")
+
+    } catch (error) {
+        console.log("skill API ERROR............", error)
+        toast.error(error.message)
+    }
+    toast.dismiss(toastId)
 }

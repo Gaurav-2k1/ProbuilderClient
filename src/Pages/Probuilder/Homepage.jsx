@@ -11,7 +11,7 @@ import PrivateRoute from '../../components/core/Auth/PrivateRoute'
 import Dashboard from '../../components/dashboard/Dashboard'
 import Tempfirst from '../Tempone/Tempfirst'
 import { useDispatch } from 'react-redux'
-import { getUserDetails } from '../../services/operations/profileAPI'
+import { addSocket, getUserDetails } from '../../services/operations/profileAPI'
 import Home from './home/Home'
 import About from './about/About'
 import Contact from '../Contact'
@@ -19,16 +19,30 @@ import TempSecond from '../Temptwo/TempSecond'
 import Tempthree from '../Tempthree/Tempthree'
 import Template from './template/Template'
 import Footer from '../../components/common/Footer'
+import { socket } from '../../components/common/Socket'
 
 const Homepage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
+
         if (localStorage.getItem("token")) {
             const token = JSON.parse(localStorage.getItem("token"))
             dispatch(getUserDetails(token, navigate))
+            socket.on("connect", () => {
+                let data = {
+                    socketid: socket.id
+                }
+                try {
+                    dispatch(addSocket(token, data))
+                } catch (err) {
+                    console.log(err)
+                }
+
+            })
         }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

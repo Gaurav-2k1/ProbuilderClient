@@ -68,7 +68,6 @@ const Achievement = () => {
             setAchievement(achievement)
             console.log("New project added")
         });
-        console.log(socket)
         getAchievement()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

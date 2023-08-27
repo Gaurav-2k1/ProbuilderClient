@@ -11,7 +11,7 @@ const Dashboard = () => {
     return (
         <div>
             <AuthNav />
-            <div className=' flex flex-row h-screen w-full relative'>
+            <div className=' flex flex-col h-full md:flex-row md:h-screen w-full relative'>
                 <SideForm show={show} setShow={setShow} />
                 <Preview show={show} setShow={setShow} />
                 <div className='absolute top-0 right-0 min-w-6 max-w-full   h-[90vh] flex flex-row '>

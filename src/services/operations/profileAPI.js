@@ -8,6 +8,7 @@ import { logout } from "./authAPI"
 const {
   GET_USER_DETAILS_API,
   GET_USER_ENROLLED_COURSES_API,
+  ADD_SOCKET_DETAILS_API,
   GET_INSTRUCTOR_DATA_API,
   UPLOAD_RESUME_API,
   ADD_RESUME_API
@@ -40,6 +41,26 @@ export function getUserDetails(token, navigate) {
   }
 }
 
+export const addSocket = async (token, data) => {
+  // console.log(token, data)
+  let result = null
+  // console.log(data, token)
+  // const toastId = toast.loading("Loading...")
+  try {
+    const response = await apiConnector("POST", ADD_SOCKET_DETAILS_API,data, {
+      Authorization: `Bearer ${token}`,
+    })
+    console.log("Socket API RESPONSE............", response)
+    if (!response?.data?.success) {
+      throw new Error("Could Not Add Course Details")
+    }
+    result = response?.data?.data
+  } catch (error) {
+    console.log("Socket API ERROR............", error)
+  }
+  // toast.dismiss(toastId)
+  return result
+}
 export const addResumeLink = async (token, data) => {
   // console.log(token, data)
   let result = null

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTemplate } from '../../slices/templateSlice'
+import { setTemplate, setTemplatetitle } from '../../slices/templateSlice'
 import { getTemplate } from '../../services/approved/Template'
 const TemplateDrawer = ({ onMouseLeave }) => {
     const [template, setTemplate] = useState([])
@@ -28,7 +28,7 @@ const TemplateDrawer = ({ onMouseLeave }) => {
                         {
                             template.map((data, i) => {
                                 return (
-                                    <TemplateBox key={i} url={data.preview} link={data.link} />
+                                    <TemplateBox key={i} url={data.preview} link={data.link} title={data.title} />
 
                                 )
                             })
@@ -44,7 +44,7 @@ const TemplateDrawer = ({ onMouseLeave }) => {
     )
 }
 
-const TemplateBox = ({ url, link }) => {
+const TemplateBox = ({ url, link, title }) => {
     const dispatch = useDispatch()
     const { template } = useSelector((state) => state.template)
 
@@ -54,6 +54,7 @@ const TemplateBox = ({ url, link }) => {
             "border border-black  border-solid"}`}
             onClick={() => {
                 dispatch(setTemplate(link))
+                dispatch(setTemplatetitle(title))
             }}>
             <img src={url} alt='' className='object-cover  group hover:brightness-50' />
             <p className='bg-white text-black rounded-2xl px-3 py-1 absolute top-[40%] left-[40%] hidden group-hover:block delay-110 transition-all ease-in'>

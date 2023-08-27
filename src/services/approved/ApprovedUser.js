@@ -4,7 +4,8 @@ import { apiConnector } from "../apiConnector"
 import { approved } from "../apis"
 
 const {
-  APPROVED_API
+  APPROVED_API,
+  PUBLISHED_API
 } = approved
 
 export const getUser = async (id) => {
@@ -29,7 +30,35 @@ export const getUser = async (id) => {
   toast.dismiss(toastId)
   //   dispatch(setLoading(false));
   return result
+
+
 }
+
+export const getPublished = async (id) => {
+  const toastId = toast.loading("Loading...")
+  //   dispatch(setLoading(true));
+  console.log(id)
+  let result = null
+  try {
+    const response = await apiConnector("POST", PUBLISHED_API, {
+      id,
+    })
+    console.log(" PUBLISHED API RESPONSE............", response)
+
+    if (!response.data.success) {
+      throw new Error(response.data.message)
+    }
+    result = response.data
+  } catch (error) {
+    console.log(" PUBLISHED_API API ERROR............", error)
+    result = error.response.data
+    // toast.error(error.response.data.message);
+  }
+  toast.dismiss(toastId)
+  //   dispatch(setLoading(false));
+  return result
+}
+
 // export function getUser(id) {
 //     return async (dispatch) => {
 //         const toastId = toast.loading("Loading...")

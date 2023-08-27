@@ -90,12 +90,15 @@ const Projects = () => {
 
             console.log(project)
         });
-        console.log(socket)
+        // socket.on('data', (socket) => {
+        //     console.log(socket)
+        // });
+        // console.log(socket)
         getProj()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-   
+
     return (
         <>
             {loading ? <div className='flex w-full h-full justify-center p-4'><div className="spinner"></div></div> : <div className='flex flex-col w-full h-full'>

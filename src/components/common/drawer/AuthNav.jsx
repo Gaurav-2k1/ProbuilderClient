@@ -13,16 +13,32 @@ import { setView } from '../../../slices/pageSlice'
 import ProfileDropdown from '../../core/Auth/ProfileDropdown'
 import { logout } from '../../../services/operations/authAPI'
 import { AiOutlineMenu } from 'react-icons/ai'
-import TemplateDrawer from '../../dashboard/TemplateDrawer'
+import { addTempuser } from '../../../services/approved/Template'
+// import TemplateDrawer from '../../dashboard/TemplateDrawer'
 
 const AuthNav = () => {
-    const [size, setsize] = useState(100)
-    const [magniactive, setmactive] = useState(false)
+    // const [size, setsize] = useState(100)
+    // const [magniactive, setmactive] = useState(false)
     const [preActive, setPreActive] = useState(1)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { token } = useSelector((state) => state.auth)
+    const { user } = useSelector((state) => state.profile)
+    const { title } = useSelector((state) => state.template)
+    const publish = {
+        user,
+        template:title
+    }
+    console.log(title)
+    const Publish = () => {
+        try {
+           addTempuser(token, publish)
+        } catch (err) {
+            console.log(err)
+        }
+    }
     // const { data: session } = useSession();
+
     return (
         <div className='flex  flex-row h-16 py-4 w-screen  items-center justify-between bg-[#222222] px-5 
         z-50'>
@@ -82,13 +98,13 @@ const AuthNav = () => {
                         <p className='text-[15px] font-MuseoModerno'>Save</p>
                     </div>
                     <div className='rounded-[5px] flex flex-row
-                    px-3 py-1 items-center bg-icob gap-2 cursor-pointer'>
+                    px-3 py-1 items-center bg-icob gap-2 cursor-pointer' onClick={Publish}>
                         <PiRocketLaunch size={15} className='text-white' />
                         <p className='text-[15px] font-MuseoModerno'>Publish</p>
                     </div>
                     <div className='bg-primary border-[#693C3C] border border-solid cursor-pointer p-2 rounded-[5px] relative '>
                         <IoDownloadOutline size={15} className='text-white' />
-                       
+
                     </div>
                     <>{token !== null && <ProfileDropdown />}
                         <button className="mr-4 md:hidden" onClick={() => {

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+    title: "templateone",
     template: "/template/tempone",
 }
 
@@ -11,10 +12,13 @@ const templateSlice = createSlice({
         setTemplate(state, value) {
             state.template = value.payload
         },
+        setTemplatetitle(state, value) {
+            state.title = value.payload
+        }
 
     },
 })
 
-export const { setTemplate } = templateSlice.actions
+export const { setTemplate ,setTemplatetitle} = templateSlice.actions
 
 export default templateSlice.reducer
