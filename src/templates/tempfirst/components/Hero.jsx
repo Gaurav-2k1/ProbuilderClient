@@ -6,7 +6,7 @@ import { AiFillGithub } from 'react-icons/ai'
 import hero from "../assets/heroimage.png"
 const Hero = ({ user }) => {
     return (
-        <div className='flex flex-col md:flex-row w-screen h-screen mainImg md:px-0 px-10'>
+        <div className='flex flex-col md:flex-row w-screen h-screen mainImg md:px-0 px-10 md:pt-10'>
             <div className='flex flex-col md:w-1/2 w-full md:pt-4  h-full justify-center
                 gap-4 md:px-16'>
                 <p className="text-white text-12xl font-mono w-2/3 font-semibold">
@@ -44,11 +44,12 @@ const Hero = ({ user }) => {
                 </div>
             </div>
             <div className='md:w-1/2 w-full h-full flex justify-center items-center md:p-5 pt-5 relative'>
-                <div className='md:h-100 md:w-100 w-3/5 flex justify-center relative 
+                <div className='md:w-[410px] md:h-[520px] w-3/5 flex justify-center items-center relative 
                     border border-blueviolet-100 p-1
                     border-opacity-80 border-solid '>
                     <img src={hero}
-                        className='md:w-100 md:h-100 w-4/5  object-contain'
+
+                        className='md:w-[400px] md:h-[500px] w-4/5 object-contain'
                         alt=''
                     />
                 </div>

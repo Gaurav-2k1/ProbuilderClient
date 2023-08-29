@@ -10,8 +10,9 @@ const PublishedPage = () => {
     const getData = async () => {
 
         try {
-            let fid = location.pathname.split("/").at(-1)
-            const id = { id: fid }
+            let id = location.pathname.split("/").at(-1)
+            // const fid = { id }
+            // let id = "gauravbhukte1507@gmail.com"
             let data = await getPublished(id)
             const t = templateData.find((item) => item.title === data.data.template)
             console.log(t)

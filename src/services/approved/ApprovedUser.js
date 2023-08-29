@@ -5,7 +5,8 @@ import { approved } from "../apis"
 
 const {
   APPROVED_API,
-  PUBLISHED_API
+  PUBLISHED_API,
+  PUBLISHED_DATA_API
 } = approved
 
 export const getUser = async (id) => {
@@ -37,7 +38,6 @@ export const getUser = async (id) => {
 export const getPublished = async (id) => {
   const toastId = toast.loading("Loading...")
   //   dispatch(setLoading(true));
-  console.log(id)
   let result = null
   try {
     const response = await apiConnector("POST", PUBLISHED_API, {
@@ -51,6 +51,31 @@ export const getPublished = async (id) => {
     result = response.data
   } catch (error) {
     console.log(" PUBLISHED_API API ERROR............", error)
+    result = error.response.data
+    // toast.error(error.response.data.message);
+  }
+  toast.dismiss(toastId)
+  //   dispatch(setLoading(false));
+  return result
+}
+
+
+export const getPublishedData = async (token) => {
+  const toastId = toast.loading("Loading...")
+  console.log(token)
+  let result = null
+  try {
+    const response = await apiConnector("GET", PUBLISHED_DATA_API, null, {
+      Authorization: `Bearer ${token}`,
+    })
+    console.log("PUBLISHED_TEMPLATE_API RESPONSE............", response)
+
+    if (!response.data.success) {
+      throw new Error(response.data.message)
+    }
+    result = response.data
+  } catch (error) {
+    console.log("PUBLISHED_TEMPLATE_API ERROR............", error)
     result = error.response.data
     // toast.error(error.response.data.message);
   }

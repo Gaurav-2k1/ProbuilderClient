@@ -1,44 +1,64 @@
 import React, { useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { Link } from 'react-router-dom'
+import { Link, matchPath, useLocation } from 'react-router-dom'
 import { RxCross1 } from 'react-icons/rx'
 
 const Navbar = ({ user }) => {
+    const location = useLocation()
+    let id = location.pathname.split("/").at(-1)
+
     const menu = [
         {
-            name: "Home"
+            name: "Home",
+            path: `/template/tempone`
         },
 
         {
-            name: "Skills"
+            name: "Skills",
+            path: "/path"
+
         },
         {
-            name: "Experience"
+            name: "Experience",
+            path: "/path"
+
         },
         {
-            name: "Education"
+            name: "Education",
+            path: "/path"
+
         },
         {
-            name: "Achiements"
+            name: "Achiements",
+            path: "/path"
+
         },
 
         {
-            name: "Contact"
+            name: "Contact",
+            path: "/path"
+
         },
 
     ]
 
     const [show, setshow] = useState(false)
+    const matchRoute = (route) => {
+        return matchPath({ path: route }, location.pathname)
+    }
     return (
         <div className='flex flex-row items-center 
          justify-between px-10 bg-[#030d1c] h-20 text-white 
-         relative z-50 w-full '>
+         fixed top-0 z-50 w-full '>
             <Link className='md:ml-5 no-underline text-2xl font-mono text-white' href="/">{(user?.firstName && user?.lastName) ? (user?.firstName + " " + user?.lastName) : "Alexander Hales"}</Link>
             <div className=" flex-row md:flex hidden md:gap-5 gap-2">
                 {
                     menu.map((m, i) => {
                         return (
-                            <Link key={i} to="/" className="font-normal font-mono no-underline text-white">
+                            <Link key={i} to="/" className={`font-normal font-mono no-underline ${matchRoute(m?.path)
+                                ? "text-white"
+                                : "text-white opacity-30"
+                                }`}>
                                 {m.name}
                             </Link>
                         )
@@ -55,8 +75,8 @@ const Navbar = ({ user }) => {
             </div>
             {
                 show ? <div className={`
-                flex flex-col fixed back w-full h-full px-5  gap-4 z-40 top-0 right-0 
-                bg-tertiary  delay-100 ease-in transition-all rounded-bl-lg items-center justify-around py-28`}>
+                flex flex-col fixed back w-full h-full px-5 gap-4 z-40 top-0 right-0
+                                bg-tertiary delay-100 ease-in transition-all rounded-bl-lg items-center justify-around py-28`}>
                     {menu.map((data, i) => {
                         return (
                             <li key={i} className='hover:text-slate-500  delay-100

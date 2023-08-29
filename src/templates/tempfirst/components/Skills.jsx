@@ -24,7 +24,7 @@ const Skills = ({ user }) => {
     <div className='flex flex-col w-full h-full md:px-32 pt-10 '>
       <p className='text-center text-lg font-mono'>Skills i learned over the years</p>
       <p className='text-center text-base font-roboto-flex'>Lets explore my skills </p>
-      <div className='flex flex-row mt-10 md:gap-10 gap-2 justify-center'>
+      <div className='flex flex-row mt-10 md:gap-10 gap-2 md:justify-center overflow-x-auto no-scrollbar'>
         <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Technical" ? "border border-solid border-icob" : ""} text-white`} onClick={
           () => {
             showSkill("Technical")

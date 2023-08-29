@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client';
 
 
-export const socket = io("http://localhost:4000", { transports: ['websocket', 'polling'] });
+export const socket = io("https://probuilderserver.onrender.com/", { transports: ['websocket', 'polling'] });
 
 // https://probuilderserver.onrender.com/
 

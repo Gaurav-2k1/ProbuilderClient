@@ -79,10 +79,12 @@ export const projectEndpoint = {
 export const approved = {
   APPROVED_API: BASE_URL + "/profile/getUser",
   PUBLISHED_API: BASE_URL + "/profile/publishData",
+  PUBLISHED_DATA_API: BASE_URL + "/profile/getpublishdata",
 }
 export const template = {
   TEMPLATE_API: BASE_URL + "/auth/getTemplate",
   GET_TEMP_API: BASE_URL + "/profile/publishUser",
+  GET_TEMPLATE_API: BASE_URL + "/profile/getTemplateData",
 
 }
 
