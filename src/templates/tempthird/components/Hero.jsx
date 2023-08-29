@@ -4,9 +4,9 @@ import { FaLinkedinIn } from "react-icons/fa"
 import { AiOutlineInstagram } from "react-icons/ai"
 import { BiLogoFacebook } from "react-icons/bi"
 import hero from "../assets/hero.png"
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 const Hero = ({ user }) => {
-  const { users } = useSelector((state) => state.profile)
+  // const { users } = useSelector((state) => state.profile)
 
   return (
     <div className='w-full h-full'>
@@ -33,7 +33,7 @@ const Hero = ({ user }) => {
             </div>
           </div>
         </div>
-        <div className='md:w-2/5 w-[500px] h-[400px] md:object-cover object-cover rounded-lg'>
+        <div className='w-full md:w-[500px] md:h-[400px] md:object-cover object-cover rounded-lg'>
           <img src={user?.profile?.image ? user?.profile?.image : hero} alt='' className='w-full h-full md:object-fill rounded-lg object-cover' />
         </div>
       </div>
