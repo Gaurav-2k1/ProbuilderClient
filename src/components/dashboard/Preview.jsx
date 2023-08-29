@@ -7,10 +7,10 @@ const Preview = ({ show, setShow }) => {
     const { template } = useSelector((state) => state.template)
     return (
         <div className={`md:h-full h-screen no-scrollbar  bg-bground pt-10 
-        justify-start  flex  flex-row w-full ${show ? "md:pr-10" : "md:pr-10"}  relative `}>
+        justify-start  flex  flex-row w-full ${show ? "md:pr-10" : "md:pr-10"}  relative ${view === "w-screen" ? "" : "justify-center"} items-center`}>
             {
                 view === "w-screen" ?
-                    <Link target="_blank" rel="noopener noreferrer" className='absolute top-2 text-center w-full md:w-11/12 left-0 md:left-10 font-roboto-flex cursor-pointer hover:underline' to={template}>Click here to in new tab</Link>
+                    <Link target="_blank" rel="noopener noreferrer" className='absolute pl-10 top-2 text-center w-max  font-roboto-flex cursor-pointer hover:underline' to={template}>Click here to open in new tab</Link>
                     : <></>
             }
             <div className={`${view === "w-screen" ? "" : "flex"} no-scrollbar  rounded-lg   items-center justify-center h-full w-full ${show ? "md:w-4/5" : "md:w-full"}  
@@ -21,7 +21,6 @@ const Preview = ({ show, setShow }) => {
                     `}
                     src={template}
                     title="Web Browser" />
-                {/* <Tempfirst /> */}
             </div>
 
         </div>

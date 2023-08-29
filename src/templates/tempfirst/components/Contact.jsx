@@ -10,7 +10,7 @@ import mobile from "../assets/mobile.svg"
 
 const Contact = () => {
   return (
-    <div className='w-screen min-h-screen 
+    <div id='contact' className='w-screen min-h-screen 
     h-[1500px] md:h-screen bg-repeat relative mainImg'>
       {/* <img className="w-screen h-screen"
         src={banner} alt='banner' /> */}

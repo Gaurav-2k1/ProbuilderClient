@@ -29,6 +29,8 @@ const Tempthree = () => {
       if (data.data?.approved === true) {
 
         setTUser(data.data)
+        document.title = data.data?.firstName + " " + data.data?.lastName
+
       }
       else {
         setTUser(null)

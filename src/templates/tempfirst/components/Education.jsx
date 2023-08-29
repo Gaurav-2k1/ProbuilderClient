@@ -2,7 +2,7 @@ import React from 'react'
 
 const Education = ({ user }) => {
   return (
-    <div className='flex flex-col w-full h-full md:px-32 mt-10 md:mt-28'>
+    <div className='flex flex-col w-full h-full md:px-32 mt-10 md:mt-28' id='education'>
       <p className='text-center text-lg font-mono'>Eduction Time</p>
       <p className='text-center text-base font-roboto-flex mt-5'>This is where i did anything and no one disturbed </p>
       <div className='flex flex-col md:px-10 items-center mt-11'>

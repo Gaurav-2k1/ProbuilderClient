@@ -21,7 +21,7 @@ const Skills = ({ user }) => {
   }
 
   return (
-    <div className='flex flex-col w-full h-full md:px-32 pt-10 '>
+    <div className='flex flex-col w-full h-full md:px-32 pt-10 ' id='Skill'>
       <p className='text-center text-lg font-mono'>Skills i learned over the years</p>
       <p className='text-center text-base font-roboto-flex'>Lets explore my skills </p>
       <div className='flex flex-row mt-10 md:gap-10 gap-2 md:justify-center overflow-x-auto no-scrollbar'>

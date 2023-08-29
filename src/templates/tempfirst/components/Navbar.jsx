@@ -10,33 +10,29 @@ const Navbar = ({ user }) => {
     const menu = [
         {
             name: "Home",
-            path: `/template/tempone`
+            path: `/template/tempone/`
         },
 
+
+        {
+            name: "Project",
+            path: `/template/tempone/#project`
+
+        },
         {
             name: "Skills",
-            path: "/path"
+            path: `/template/tempone/#Skill`
 
         },
         {
             name: "Experience",
-            path: "/path"
-
-        },
-        {
-            name: "Education",
-            path: "/path"
-
-        },
-        {
-            name: "Achiements",
-            path: "/path"
+            path: `/template/tempone/#experience`
 
         },
 
         {
             name: "Contact",
-            path: "/path"
+            path: `/template/tempone/#contact`
 
         },
 
@@ -44,7 +40,8 @@ const Navbar = ({ user }) => {
 
     const [show, setshow] = useState(false)
     const matchRoute = (route) => {
-        return matchPath({ path: route }, location.pathname)
+
+        return matchPath({ path: route }, location.pathname + location.hash)
     }
     return (
         <div className='flex flex-row items-center 
@@ -55,12 +52,12 @@ const Navbar = ({ user }) => {
                 {
                     menu.map((m, i) => {
                         return (
-                            <Link key={i} to="/" className={`font-normal font-mono no-underline ${matchRoute(m?.path)
+                            <a key={i} href={m.path} className={`font-normal font-mono no-underline ${matchRoute(m.path)
                                 ? "text-white"
                                 : "text-white opacity-30"
                                 }`}>
                                 {m.name}
-                            </Link>
+                            </a>
                         )
                     })
                 }

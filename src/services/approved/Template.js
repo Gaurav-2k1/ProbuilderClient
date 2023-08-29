@@ -10,7 +10,7 @@ const {
 } = template
 
 export const getTemplate = async () => {
-    const toastId = toast.loading("Loading...")
+    // const toastId = toast.loading("Loading...")
     //   dispatch(setLoading(true));
     let result = null
     try {
@@ -26,7 +26,7 @@ export const getTemplate = async () => {
         result = error.response.data
         // toast.error(error.response.data.message);
     }
-    toast.dismiss(toastId)
+    // toast.dismiss(toastId)
     //   dispatch(setLoading(false));
     return result
 }

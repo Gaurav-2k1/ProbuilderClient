@@ -2,7 +2,7 @@ import React from 'react'
 import ach from "../assets/achv.svg"
 const Achievements = ({ user }) => {
   return (
-    <div className='flex flex-col w-full h-full md:px-32 mt-28 pb-10'>
+    <div className='flex flex-col w-full h-full md:px-32 mt-28 pb-10' id='achiements'>
       <p className='text-center text-lg font-mono'>My Achievements and Accolades</p>
       <p className='text-center text-base font-roboto-flex mt-5'>Some of my goood memeories</p>
       <div className='flex flex-wrap w-full md:gap-6 gap-2 justify-center mt-10'>

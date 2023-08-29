@@ -106,9 +106,9 @@ const Homepage = () => {
                     <Route path="dashboard/builder" element={<Dashboard />} />
 
                 </Route>
-                <Route path='/template/tempone' element={<Tempfirst />} />
-                <Route path='/template/temptwo' element={<TempSecond />} />
-                <Route path='/template/tempthree' element={<Tempthree />} />
+                <Route path='/template/tempone/' element={<Tempfirst />} />
+                <Route path='/template/temptwo/' element={<TempSecond />} />
+                <Route path='/template/tempthree/' element={<Tempthree />} />
             </Routes>
             <Footer />
 

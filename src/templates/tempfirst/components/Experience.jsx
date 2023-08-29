@@ -2,7 +2,7 @@ import React from 'react'
 
 const Experience = ({ user }) => {
   return (
-    <div className='flex flex-col w-full h-full md:px-32 pt-10'>
+    <div className='flex flex-col w-full h-full md:px-32 pt-10' id='experience'>
       <p className='text-center text-lg font-mono'>Check my Experience</p>
       <p className='text-center text-base font-roboto-flex mt-5'>Lets see how much experienc eis  - you want it right</p>
       <div className='flex flex-col  md:px-10 items-center justify-center mt-11'>

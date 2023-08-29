@@ -11,7 +11,7 @@ const Skill = ({ user }) => {
                 </div>
                 <div className='w-full md:w-1/4  flex flex-col p-2 bg-black justify-between rounded-lg py-4 gap-3'>
 
-                    <img src={con} alt='' className='object-contain h-3/5 self-center' />
+                    <img src={user?.profile?.image ? user?.profile?.image : con} alt='' className='object-cover object-center h-3/5 md:h-[200px] md:w-[400px] self-center rounded-lg' />
                     <p className='text-lg font-bold text-white font-DMSans'>I have the skills & the experience you need ! </p>
                     <p className='rounded-2xl bgp w-max text-black font-bold px-3 py-2 font-DMSans'>Contact Me !</p>
                 </div>

@@ -1,6 +1,7 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AiOutlineCaretDown } from "react-icons/ai"
 import { VscDashboard, VscSignOut } from "react-icons/vsc"
+import { BiLinkExternal } from "react-icons/bi"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
@@ -17,9 +18,9 @@ export default function ProfileDropdown() {
   useOnClickOutside(ref, () => setOpen(false))
 
   var location = useLocation()
-
+  const link = "/web/" + user?._id
   if (!user) return null
-
+  
   return (
     <button className="relative" onClick={() => setOpen(true)}>
       <div className="flex items-center gap-x-1">
@@ -40,10 +41,16 @@ export default function ProfileDropdown() {
           className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-primary"
           ref={ref}
         >
-          <Link to="/dashboard/builder" onClick={() => setOpen(false)}>
+          <Link to="/dashboard/builder"   onClick={() => setOpen(false)}>
             <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25 font-DMSans">
               <VscDashboard className="text-lg " />
               Dashboard
+            </div>
+          </Link>
+          <Link to={link}  target="_blank" onClick={() => setOpen(false)}>
+            <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25 font-DMSans">
+              <BiLinkExternal className="text-lg " />
+              Get Link
             </div>
           </Link>
           <div
