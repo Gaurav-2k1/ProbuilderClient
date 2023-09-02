@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .mainImg {
     background-image: url('./assets/Banner.png');
 
@@ -5,4 +8,10 @@
     
     /* background: linear-gradient(131deg, #000 0%, #000 10.40%, #0C0F24 25.00%, #000 66.32%, #080136 100%); */
     background-repeat: no-repeat;
+}
+
+@layer components{
+   .headings{
+    @apply font-roboto-mono font-normal text-[31px] leading-[74px] text-center
+   } 
 }

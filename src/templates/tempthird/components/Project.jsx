@@ -3,6 +3,7 @@ import p1 from "../assets/p1.png"
 import p2 from "../assets/p2.png"
 import p3 from "../assets/p3.png"
 import { BsArrowUpRight } from "react-icons/bs"
+import { data } from 'autoprefixer'
 const Project = ({ user }) => {
   return (
     <div className=' mt-4 h-full w-full'>
@@ -11,7 +12,7 @@ const Project = ({ user }) => {
           user?.projects.length > 0 ? (
             user.projects.map((data, i) => {
               return (
-                <ProjectCard url={i % 2 === 0 ? p1 : p2} key={i} title={data.title} />
+                <ProjectCard url={i % 2 === 0 ? p1 : p2} key={i} title={data.title} desc={data.description} />
 
               )
             }))
@@ -33,7 +34,7 @@ const Project = ({ user }) => {
   )
 }
 
-const ProjectCard = ({ url ,title}) => {
+const ProjectCard = ({ url, title, desc }) => {
   return (
     <div className='md:w-[400px] md:h-[500px] relative rounded-lg group'>
 
@@ -44,7 +45,7 @@ const ProjectCard = ({ url ,title}) => {
       <div className='w-11/12 mx-4 h-max absolute bottom-4 left-0 bg-[#00000090] p-4 rounded-lg hidden group-hover:block delay-200 transition-all ease-in'>
 
         <p className='text-white font-DMSans text-[20px] font-bold'>{title}</p>
-        <p className='text-white font-DMSans text-[16px] font-medium'>We updated our Payments page along with the site redesign, and it's now live! Check it out at: https://stripe.com/payments Big props to the whole team but especially Thomas Degry and Nick Jones for, as always, the lovely details on the animations.</p>
+        <p className='text-white font-DMSans text-[16px] font-medium'>{desc ? desc : "We updated our Payments page along with the site redesign, and it's now live! Check it out at: https://stripe.com/payments Big props to the whole team but especially Thomas Degry and Nick Jones for, as always, the lovely details on the animations."}</p>
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-
+import { motion } from "framer-motion"
 const Skills = ({ user }) => {
   const [Skilla, setSkilla] = useState(user.skills.filter((skill) => skill.skilltype === "Technical"))
 
@@ -21,11 +21,11 @@ const Skills = ({ user }) => {
   }
 
   return (
-    <div className='flex flex-col w-full h-full md:px-32 pt-10 ' id='Skill'>
-      <p className='text-center text-lg font-mono'>Skills i learned over the years</p>
+    <section className='flex flex-col w-full h-full md:px-32 pt-10 ' id='Skill'>
+      <p className='text-center text-[31px] leading-[74px] font-mono'>Skills i learned over the years</p>
       <p className='text-center text-base font-roboto-flex'>Lets explore my skills </p>
       <div className='flex flex-row mt-10 md:gap-10 gap-2 md:justify-center overflow-x-auto no-scrollbar'>
-        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Technical" ? "border border-solid border-icob" : ""} text-white`} onClick={
+        <div className={`cursor-pointer p-2 min-w-max opacity-75  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Technical" ? "border border-solid border-icob" : ""} text-white`} onClick={
           () => {
             showSkill("Technical")
 
@@ -33,7 +33,7 @@ const Skills = ({ user }) => {
         }>
           Technical Skills
         </div>
-        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Interpersonal" ? "border border-solid border-icob" : ""} text-white`}
+        <div className={`cursor-pointer p-2 min-w-max opacity-75  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Interpersonal" ? "border border-solid border-icob" : ""} text-white`}
           onClick={
             () => {
               showSkill("Interpersonal")
@@ -42,7 +42,7 @@ const Skills = ({ user }) => {
           }>
           Interpersonal
         </div>
-        <div className={`cursor-pointer p-2 min-w-max  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Software" ? "border border-solid border-icob" : ""} text-white`}
+        <div className={`cursor-pointer p-2 min-w-max opacity-75  md:p-4 font-mono delay-110 ease-in-out transition-all  rounded-md ${active.current === "Software" ? "border border-solid border-icob" : ""} text-white`}
           onClick={
             () => {
               showSkill("Software")
@@ -72,7 +72,7 @@ const Skills = ({ user }) => {
       </div>
 
 
-    </div>)
+    </section>)
 }
 
 export default Skills;
@@ -81,10 +81,19 @@ export default Skills;
 const Skillscom = ({ title, level }) => {
   return (
     <div className='flex flex-col md:w-1/4 w-1/3 md:m-5 m-3 delay-150 ease-linear transition-all'>
-      <p className='text-base font-mono'>{title}</p>
+      <div className='flex flex-row justify-between'>
+        <p className='text-base font-mono'>{title}</p>
+        <p className='text-base font-mono'>{level}</p>
+
+      </div>
+
       <div className='w-full bg-gray-100 h-2 rounded-xl mt-2'>
-        <div style={{ width: `${level}` }}
-          className={`bg-blue-500 h-full  rounded-xl`}></div>
+        <motion.div
+          animate={{ width: `${level}` }}
+          initial={{ width: 0 }}
+          transition={{ ease: "linear", duration: 0.5 }}
+
+          className={`bg-icob h-full  rounded-xl`}></motion.div>
       </div>
     </div>
   )

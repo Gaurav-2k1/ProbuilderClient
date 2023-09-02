@@ -11,9 +11,9 @@ const Hero = ({ user }) => {
   return (
     <div className='w-full h-full'>
       <div className='flex w-full flex-col md:flex-row my-2 gap-4'>
-        <div className={`flex flex-col w-full md:w-3/5 rounded-lg bgp p-5 md:p-10 gap-4 justify-around`}>
+        <div className={`flex flex-col w-full md:w-3/4 rounded-lg bgp p-5 md:p-10 gap-4 justify-around`}>
           <p className='text-[35px] md:text-[42px] font-DMSans text-black font-bold'>
-            Hey, I’m {user?.firstName ? user?.firstName : "Claire"}, a {user?.profile?.designation ? user?.profile?.designation : "Software Engineer"} with 7 years of experience
+            Hey, I’m {user?.firstName ? user?.firstName : "Claire"}, a {user?.profile?.designation ? user?.profile?.designation : "Software Engineer"}
 
           </p>
           <p className='text-[20px] font-DMSans text-black leading-5'>
@@ -33,7 +33,7 @@ const Hero = ({ user }) => {
             </div>
           </div>
         </div>
-        <div className='w-full md:w-[500px] md:h-[400px] md:object-cover object-cover rounded-lg'>
+        <div className='w-full md:w-max md:h-[400px] md:object-cover object-cover rounded-lg'>
           <img src={user?.profile?.image ? user?.profile?.image : hero} alt='' className='w-full h-full md:object-fill rounded-lg object-cover' />
         </div>
       </div>

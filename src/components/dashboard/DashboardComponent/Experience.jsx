@@ -176,7 +176,7 @@ const Experience = () => {
                                 type="text"
                                 name="description"
                                 id="description"
-                                placeholder="Enter Live Demo Link"
+                                placeholder="Enter your role"
                                 className="inpform"
                                 {...register("description", { required: true })}
                             />
@@ -191,7 +191,7 @@ const Experience = () => {
                                 type="text"
                                 name="location"
                                 id="location"
-                                placeholder="Enter Live Demo Link"
+                                placeholder="Enter Location here"
                                 className="inpform"
                                 {...register("location", { required: true })}
                             />
