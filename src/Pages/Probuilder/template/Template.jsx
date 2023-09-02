@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, CSSProperties } from 'react'
 import { FiFilter } from "react-icons/fi"
 import { getTemplate } from '../../../services/approved/Template'
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import { BsSearch } from 'react-icons/bs'
 import { RxCross2 } from 'react-icons/rx'
-
+import ClipLoader from "react-spinner"
 
 const filter = [
     "Software Engineer",
@@ -19,11 +19,14 @@ const Template = () => {
     const [template, setTemplate] = useState([])
     const [inputtag, setInputtag] = useState("")
     const [tag, settag] = useState([])
-
+    const [loading, setLoading] = useState(false)
     const getTemplateData = async () => {
+
         try {
+            setLoading(true)
             let temp = await getTemplate()
             setTemplate(temp.data)
+            setLoading(false)
         } catch (err) {
             console.log(err)
         }
@@ -35,6 +38,11 @@ const Template = () => {
             setInputtag('');
         }
 
+    };
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
     };
     const removeitem = (data) => {
         const updatedItems = tag.filter((item) => item !== data);
@@ -115,31 +123,38 @@ const Template = () => {
                     </div>
                     <div className='w-full md:w-4/5 flex h-full flex-wrap mt-5 py-3 justify-around gap-3 border border-solid border-[#00000021] rounded-lg px-4'>
                         {
-                            template.map((data, i) => {
-                                return (
-                                    <TemplateCard key={i} url={data.preview} n={i + 1} />
+                            loading ?
+                               <div className='spinner'></div> :
+                                <>
+                                    {
+                                        template.map((data, i) => {
+                                            return (
+                                                <TemplateCard key={i} url={data.preview} n={i + 1} />
 
-                                )
-                            })
-                        }
-                        {
-                            template.map((data, i) => {
-                                return (
-                                    <TemplateCard key={i} url={data.preview} n={i + 1} />
+                                            )
+                                        })
+                                    }
+                                    {
+                                        template.map((data, i) => {
+                                            return (
+                                                <TemplateCard key={i} url={data.preview} n={i + 1} />
 
-                                )
-                            })
-                        }
-                        {
-                            template.map((data, i) => {
-                                return (
-                                    <TemplateCard key={i} url={data.preview} n={i + 1} />
+                                            )
+                                        })
+                                    }
+                                    {
+                                        template.map((data, i) => {
+                                            return (
+                                                <TemplateCard key={i} url={data.preview} n={i + 1} />
 
-                                )
-                            })
+                                            )
+                                        })
+                                    }
+                                </>
                         }
-                        
-                        
+
+
+
                     </div>
                 </div>
             </div>

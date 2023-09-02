@@ -20,7 +20,7 @@ const About = ({ user }) => {
             {ab}
             <p className={`text-red-500 cursor-pointer hover:underline ${ab.length > 400 ? "hidden" : "block"}`} onClick={sliceAbout}>See More</p>
             <p className={`text-red-500 cursor-pointer hover:underline ${ab.length > 400 ? "block" : "hidden"}`} onClick={slicAbout}>See Less</p>
-          </div> : "        Claire Williams : Entrepreneurial tech enthusiast with a passion for startups. Co-founder of 'Tournafest' Esports App, securing $400K funding. Led 30+ high-performance teams, driving remarkable growth. Collaborated with diverse startups & corporate ventures. Open-source contributor with 6000+ GitHub stars. IIT Roorkee CS alum, versatile & results-oriented leader. Built 'Tournafest' into a prominent player with 370K+ users & 70K+ tournaments. Expertise spans tech, healthcare, fintech, and deeptech industries."}
+          </div> : "Claire Williams : Entrepreneurial tech enthusiast with a passion for startups. Co-founder of 'Tournafest' Esports App, securing $400K funding. Led 30+ high-performance teams, driving remarkable growth. Collaborated with diverse startups & corporate ventures. Open-source contributor with 6000+ GitHub stars. IIT Roorkee CS alum, versatile & results-oriented leader. Built 'Tournafest' into a prominent player with 370K+ users & 70K+ tournaments. Expertise spans tech, healthcare, fintech, and deeptech industries."}
       </p>
     </div>
   )
