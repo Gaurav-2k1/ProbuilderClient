@@ -4,10 +4,11 @@ import Reveal from '../../../components/common/Framer/Reveal'
 const About = ({ user }) => {
     return (
         <section className='flex flex-col-reverse md:flex-row w-full h-full py-10'>
-            <Reveal>
 
-                <div className='md:w-1/2 w-full  flex justify-center 
+            <div className='md:w-1/2 w-full  flex justify-center 
             items-center p-5 relative md:pl-52'>
+                <Reveal>
+
                     <div className='
                     border border-blueviolet-100 
                     border-opacity-80 border-solid flex 
@@ -21,9 +22,9 @@ const About = ({ user }) => {
                     </div>
 
 
+                </Reveal>
 
-                </div>
-            </Reveal>
+            </div>
 
             <div className='flex flex-col  md:w-1/2 w-full gap-5 h-full'>
                 <p className='mt-10 md:mt-5 headings text-left'>About Me</p>
@@ -35,7 +36,7 @@ const About = ({ user }) => {
 
 
             </div>
-        </section>
+        </section >
     )
 }
 
