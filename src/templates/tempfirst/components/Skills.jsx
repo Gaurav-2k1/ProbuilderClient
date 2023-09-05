@@ -52,7 +52,7 @@ const Skills = ({ user }) => {
           Softwares
         </div>
       </div>
-      <div className='w-full h-full flex flex-wrap mt-10  justify-center'>
+      <div className='w-full h-full flex flex-wrap mt-10 justify-between md:justify-center'>
         {
           Skilla.map((data, i) => {
             return (
@@ -81,8 +81,8 @@ export default Skills;
 const Skillscom = ({ title, level }) => {
   return (
     <div className='flex flex-col md:w-1/4 w-1/3 md:m-5 m-3 delay-150 ease-linear transition-all'>
-      <div className='flex flex-row justify-between'>
-        <p className='text-base font-mono'>{title}</p>
+      <div className='flex flex-col md:flex-row justify-between gap-2'>
+        <p className='text-base font-mono w-min'>{title}</p>
         <p className='text-base font-mono'>{level}</p>
 
       </div>
