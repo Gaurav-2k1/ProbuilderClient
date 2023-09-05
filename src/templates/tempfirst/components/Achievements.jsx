@@ -46,7 +46,7 @@ const AchievementCard = ({ title }) => {
         <img
           src={ach}
           alt=""
-          className='md:w-6 md:h-6 h-3 w-3 object-contain'
+          className='md:w-6 md:h-6 h-4 w-4 object-contain'
 
         />
       </div>

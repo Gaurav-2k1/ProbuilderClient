@@ -71,7 +71,7 @@ const EduRow = ({ title, schoolname, startDate, endDate, location }) => {
         <p className='text-[18px] font-semibold leading-[29px] font-roboto-flex'>{title ? title : "12th Board HSC"}</p>
         <span className='flex md:flex-row flex-col  gap-4'>
 
-          <p className='text-[18px]  leading-[29px] font-roboto-flex w-max'>{schoolname ? schoolname : "Vasantrao Naik Mahavidyalay"}</p>
+          <p className='text-[18px]  leading-[29px] font-roboto-flex md:w-max'>{schoolname ? schoolname : "Vasantrao Naik Mahavidyalay"}</p>
           •
           <p className='text-[18px]  leading-[29px] font-roboto-flex'>{location ? location : "Aurangabad, Maharashtra"} </p>
         </span>

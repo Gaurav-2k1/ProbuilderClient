@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef } from 'react'
 import { motion, useInView, useAnimation } from "framer-motion"
-const Reveal = ({ children, width = "fit-content" }) => {
+const Reveal = ({ children, width = "fit-content", height = "fit-content" }) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
 
@@ -13,7 +13,7 @@ const Reveal = ({ children, width = "fit-content" }) => {
         console.log(isInView)
     }, [isInView])
     return (
-        <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+        <div ref={ref} style={{ position: "relative", width, height, overflow: "visible" }}>
             <motion.div
                 variants={{
                     hidden: {

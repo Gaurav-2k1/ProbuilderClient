@@ -54,11 +54,11 @@ const Hero = ({ user }) => {
                     <div className='w-[410px] h-[520px]  flex justify-center items-center relative 
                     border border-blueviolet-100 p-1
                     border-opacity-80 border-solid '>
-                        <Reveal><img src={user?.profile?.image ? user?.profile?.image : hero}
+                        <img src={user?.profile?.image ? user?.profile?.image : hero}
 
                             className='w-[400px] h-[500px]  object-cover'
                             alt=''
-                        /></Reveal>
+                        />
 
                     </div>
 
@@ -68,18 +68,17 @@ const Hero = ({ user }) => {
                 <div className='w-[300px] h-[350px]  flex justify-center items-center relative 
                     border border-blueviolet-100 p-2
                     border-opacity-80 border-solid '>
-                    <Reveal>
-                        <img src={user?.profile?.image ? user?.profile?.image : hero}
 
-                            className='w-full h-full  object-cover'
-                            alt=''
-                        />
-                    </Reveal>
+                    <img src={user?.profile?.image ? user?.profile?.image : hero}
+
+                        className='w-full h-full  object-cover'
+                        alt=''
+                    />
 
                 </div>
 
             </div>
-        </div >
+        </div>
 
     )
 }
