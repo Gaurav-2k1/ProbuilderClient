@@ -7,8 +7,8 @@ import hero from "../assets/heroimage.png"
 import Reveal from '../../../components/common/Framer/Reveal'
 const Hero = ({ user }) => {
     return (
-        <div className='h-[950px] pb-10 md:pb-0 w-full md:h-full'>
-            <div className='flex flex-col md:flex-row w-screen md:min-h-screen h-[500px]  mainImg md:px-0 px-10 ' id='#'>
+        <div className='h-full  md:pb-0 w-full md:h-full'>
+            <div className='flex flex-col  md:flex-row w-screen md:min-h-screen  md:pt-32 md:h-full h-full  py-4 mainImg   md:px-0 px-10 ' id='#'>
                 <div className='flex flex-col md:w-1/2 w-full md:pt-4 mt-32 md:mt-0 h-full justify-normal md:justify-center
                 gap-4 md:px-16'>
                     <Reveal>
@@ -19,7 +19,11 @@ const Hero = ({ user }) => {
                     <Reveal> <p className="text-white text-base font-roboto-flex md:mt-5 leading-7 ">
                         {user?.profile.description}
                     </p></Reveal>
-                    <Reveal><div className='bg-gray-400 cursor-pointer hover:bg-gray-300 md:mt-5 text-white text-lg font-mono w-max p-4 rounded-'>Download CV</div></Reveal>
+                    <Reveal>
+                        <div onClick={() => {
+                            window.open(user?.profile?.resume, '_blank', 'noopener,noreferrer');
+
+                        }} className='bg-gray-400 cursor-pointer hover:bg-gray-300 md:mt-5 text-white text-lg font-mono w-max p-4 rounded-'>Download CV</div></Reveal>
                     <Reveal>
                         <div className='flex flex-row gap-2'>
                             <div className='p-5 bg-gray-200 cursor-pointer  hover:bg-slate-950' onClick={() => {
@@ -64,7 +68,8 @@ const Hero = ({ user }) => {
 
                 </div>
             </div>
-            <div className='md:w-1/2 w-full h-full flex justify-center items-center md:p-5 md:hidden  relative -translate-y-14 md:translate-y-0'>
+            <div className='md:w-1/2 w-full h-full flex justify-center items-center md:p-5 md:hidden
+              relative translate-y-14 md:translate-y-0'>
                 <div className='w-[300px] h-[350px]  flex justify-center items-center relative 
                     border border-blueviolet-100 p-2
                     border-opacity-80 border-solid '>

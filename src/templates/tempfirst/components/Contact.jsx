@@ -8,13 +8,13 @@ import mail from "../assets/mail.svg"
 import location from "../assets/location.svg"
 import mobile from "../assets/mobile.svg"
 
-const Contact = () => {
+const Contact = ({ user }) => {
   return (
     <div id='contact' className='w-screen min-h-screen 
-    h-[1500px] md:h-screen bg-repeat relative mainImg'>
+    h-[1550px] md:h-screen bg-repeat relative mainImg flex flex-col'>
       {/* <img className="w-screen h-screen"
         src={banner} alt='banner' /> */}
-      <div className='flex flex-col md:flex-row w-full h-full absolute top-0 z-10 px-10'>
+      <div className='flex flex-col md:flex-row w-full h-full  top-0 z-10 px-10'>
         <div className='flex flex-col w-full md:w-1/2  h-full justify-center
             gap-6 md:px-16'>
           <p className="text-white text-12xl font-mono w-2/3 font-semibold">
@@ -72,11 +72,11 @@ const Contact = () => {
         <div className='w-full md:w-1/2 h-full flex flex-col 
         md:gap-5 justify-start md:items-start  
         md:p-5 relative md:pt-10 '>
-          <div className='md:w-1/2 md:h-1/2 w-4/5 h-min relative 
+          <div className='md:w-1/2 md:h-1/2  relative 
                 border border-blueviolet-100 
                 border-opacity-80 border-solid md:mt-5 flex self-center'>
-            <img src={contact}
-              className='p-5 object-contain'
+            <img src={user?.profile?.image ? user?.profile?.image : contact}
+              className='p-5 object-cover w-[300px] h-[300px]'
               alt="" />
 
           </div>
@@ -85,7 +85,7 @@ const Contact = () => {
             <div className='flex flex-row items-center gap-4'>
               <img src={mail} alt=''
                 className='w-5 h-5 object-contain' />
-              <p className='text-base font-roboto-flex'>alexanderhales@gmail.com</p>
+              <p className='text-base font-roboto-flex'>{user?.email ? user?.email : "alexanderhales@gmail.com"}</p>
             </div>
             <div className='flex flex-row gap-4 items-center'>
               <img src={location} alt=''
@@ -136,15 +136,15 @@ const Contact = () => {
 
         </div>
       </div>
-      <div className='flex flex-row absolute bottom-0  
+      <div className='flex flex-col gap-6 md:flex-row  
       bg-transparent p-5 w-full h-max 
       justify-between px-12  
       border-white 
       border-t
       border-solid
       border-l-0 border-r-0 border-b-0'>
-        <div className='flex flex-row gap-1'>
-          <p className='text-base font-mono'>alexander hales</p>
+        <div className='flex flex-col md:flex-row gap-1'>
+          <p className='text-base font-mono'>{user?.firstName ? user?.firstName : "alexander hales"}</p>
           <div className='w-[1px] h-full bg-white' />
           <p className='text-base font-roboto-flex'>Copyright @ 2023. All rights reserved</p>
         </div>

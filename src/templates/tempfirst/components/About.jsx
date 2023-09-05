@@ -26,7 +26,7 @@ const About = ({ user }) => {
 
 
             <div className='flex flex-col  md:w-1/2 w-full gap-5 h-full'>
-                <p className='mt-10 md:mt-5 headings text-left'>About Me</p>
+                <p className=' md:mt-5 headings text-left'>About Me</p>
                 <p className='md:w-2/3 w-full font-roboto-flex text-base'>
                     {user?.profile.about}
                 </p>
