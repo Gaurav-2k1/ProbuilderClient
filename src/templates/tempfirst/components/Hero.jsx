@@ -53,9 +53,9 @@ const Hero = ({ user }) => {
             </div>
 
 
-            <div className='md:w-1/2 w-full h-full flex justify-center items-center md:p-5 md:hidden
+            <div className='md:w-1/2 w-full h-full flex justify-center items-center md:p-5 
               relative translate-y-14 md:translate-y-0'>
-                <div className='w-[300px] h-[350px]  flex justify-center items-center relative 
+                <div className='w-[300px] h-[350px] md:w-[400px] md:h-[500px]  flex justify-center items-center relative 
                     border border-blueviolet-100 p-2
                     border-opacity-80 border-solid '>
 
