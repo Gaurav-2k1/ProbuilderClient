@@ -21,6 +21,7 @@ const TempFour = () => {
     // const { token } = useSelector((state) => state.auth)
     const [tuser, setTUser] = useState(user)
     const [authuser, setAuthuser] = useState(true)
+    const [locationp,setlocation] =useState(location.pathname)
     const entry = async (id) => {
         try {
             setLoading(true)
@@ -50,6 +51,7 @@ const TempFour = () => {
         if (location.pathname === "/template/tempone/") {
             if (localStorage.getItem("token")) {
                 const token = JSON.parse(localStorage.getItem("token"))
+                setlocation(location.pathname)
                 dispatch(getUserDetails(token, navigate))
             }
         }
@@ -81,7 +83,7 @@ const TempFour = () => {
                                     {
                                         user ? <>
                                             <div className=''>
-                                                <Navbar user={tuser ? tuser : user} route="/template/tempfour" />
+                                                <Navbar user={tuser ? tuser : user} route={locationp}/>
                                                 <div className='  overflow-y-scroll relative h-full overflow-x-hidden bg-black w-full'>
                                                     <ContactBar user={tuser ? tuser : user} />
                                                     <div className='flex flex-col h-full w-full pl-[60px] scroll-smooth'>

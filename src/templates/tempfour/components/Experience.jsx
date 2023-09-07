@@ -25,10 +25,10 @@ const Experience = ({ user }) => {
 
                         }) :
                         <div className='flex flex-col  md:px-10 items-center justify-center mt-11'>
-                            <ExperienceCard />
-                            <ExperienceCard />
-                            <ExperienceCard />
-                            <ExperienceCard />
+                            <ExperienceCard key={1}/>
+                            <ExperienceCard key={2}/>
+                            <ExperienceCard key={3}/>
+                            <ExperienceCard key={4}/>
                         </div>
                 }
 

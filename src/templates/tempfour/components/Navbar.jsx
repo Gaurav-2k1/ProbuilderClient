@@ -7,35 +7,35 @@ const Navbar = ({ route ,user}) => {
     const menu = [
         {
             name: "About",
-            path: `${route}/#about`,
+            path: `${route}#about`,
             id: "about"
         },
 
 
         {
             name: "Project",
-            path: `${route}/#project`,
+            path: `${route}#project`,
             id: "project"
 
         },
 
         {
             name: "Experience",
-            path: `${route}/#experience`,
+            path: `${route}#experience`,
             id: "experience"
 
         },
 
         {
             name: "Contact",
-            path: `${route}/#contact`,
+            path: `${route}#contact`,
             id: "contact"
 
         },
 
     ]
     const location = useLocation()
-    const [activeSection, setActiveSection] = useState(null);
+    // const [activeSection, setActiveSection] = useState(null);
 
     const matchRoute = (route) => {
 
