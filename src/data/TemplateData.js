@@ -1,3 +1,4 @@
+import TempFour from "../Pages/Tempfour/TempFour";
 import Tempfirst from "../Pages/Tempone/Tempfirst";
 import Tempthree from "../Pages/Tempthree/Tempthree";
 import TempSecond from "../Pages/Temptwo/TempSecond";
@@ -14,6 +15,10 @@ export const templateData = [
     {
         title: "templatethree",
         component: <Tempthree key={3} />
+    },
+    {
+        title: "templatefour",
+        component: <TempFour key={4} />
     }
 
 ]

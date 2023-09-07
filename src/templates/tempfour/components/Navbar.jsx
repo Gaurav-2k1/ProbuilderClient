@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { matchPath } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-const Navbar = ({ route }) => {
+const Navbar = ({ route ,user}) => {
     const menu = [
         {
             name: "About",
@@ -75,7 +75,7 @@ const Navbar = ({ route }) => {
                 <HashLink
                     to="#top"
                     scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: "start" })}>
-                    <p className='font-black text-[32px] font-DMSans'>G
+                    <p className='font-black text-[32px] font-DMSans'>{user?.firstName.slice(0,1)}
                         <span className='text-3xl text-[#98BBFF]'>.</span></p>
                 </HashLink>
 
