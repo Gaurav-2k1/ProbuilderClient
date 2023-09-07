@@ -20,6 +20,7 @@ import Tempthree from '../Tempthree/Tempthree'
 import Template from './template/Template'
 import Footer from '../../components/common/Footer'
 import { socket } from '../../components/common/Socket'
+import TempFour from '../Tempfour/TempFour'
 
 const Homepage = () => {
     const dispatch = useDispatch()
@@ -109,6 +110,7 @@ const Homepage = () => {
                 <Route path='/template/tempone/' element={<Tempfirst />} />
                 <Route path='/template/temptwo/' element={<TempSecond />} />
                 <Route path='/template/tempthree/' element={<Tempthree />} />
+                <Route path='/template/tempfour/' element={<TempFour />} />
             </Routes>
             <Footer />
 

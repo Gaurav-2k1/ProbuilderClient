@@ -15,7 +15,7 @@ module.exports = {
         bground: "#313030",
         primary: "#222",
         placeholder: "rgba(255, 255, 255, 0.17)",
-        logplace:"#00000033",
+        logplace: "#00000033",
         icob: "#454DFD",
         blueviolet: {
           "100": "#454dfd",
@@ -36,6 +36,7 @@ module.exports = {
       fontFamily: {
         "MuseoModerno": 'MuseoModerno',
         "DMSans": "DM Sans",
+        "Poppins": 'Poppins',
         inter: ["Inter", "sans-serif"],
         "roboto-flex": "'Roboto Flex'",
         "roboto-mono": "Roboto Mono",

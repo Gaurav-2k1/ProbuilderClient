@@ -5,8 +5,8 @@ import { RxCross1 } from 'react-icons/rx'
 
 const Navbar = ({ user }) => {
     const location = useLocation()
-    let id = location.pathname.split("/").at(-1)
-
+    let id = location.pathname.split("/").at(-1);
+    
     const menu = [
         {
             name: "Home",

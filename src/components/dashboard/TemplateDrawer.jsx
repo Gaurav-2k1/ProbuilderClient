@@ -20,8 +20,8 @@ const TemplateDrawer = ({ onMouseLeave }) => {
     }, [])
     return (
         <div className='
-          z-50 delay-110 transition-all ease-linear'>
-            <div className='flex flex-col p-2 bg-primary border-x border-b border-white  border-solid max-h-[100vh] w-full overflow-auto no-scrollbar'
+          z-50 delay-110 transition-all ease-linear pb-20'>
+            <div className='flex flex-col p-2 bg-primary border-x  border-white  border-solid max-h-[90vh] w-full overflow-auto no-scrollbar'
                 onMouseLeave={onMouseLeave}>
                 {
                     loading ? <div className=' w-full h-full bg-gray-400 flex items-center justify-center'><div className='spinner'></div></div> : <>
