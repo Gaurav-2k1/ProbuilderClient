@@ -43,8 +43,8 @@ const ExperienceCard = ({ title, employer, startDate, endDate, description, loca
         "Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "August", "Sept", "Oct", "Nov", "Dec"
     ];
-    const diffMonths = (ed.getFullYear() - sd.getFullYear()) * 12 +
-        (ed.getMonth() - sd.getMonth());
+    // const diffMonths = (ed.getFullYear() - sd.getFullYear()) * 12 +
+    //     (ed.getMonth() - sd.getMonth());
     return (
         <div className='flex flex-col w-full gap-3'>
             <div className='flex flex-row items-center justify-between'>

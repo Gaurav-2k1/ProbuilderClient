@@ -4,6 +4,7 @@ import { matchPath } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 const Navbar = ({ route ,user}) => {
+    console.log(route)
     const menu = [
         {
             name: "About",
